@@ -389,8 +389,6 @@
 						<real>0.5</real>
 					</dict>
 				</array>
-				<key>selected</key>
-				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
@@ -424,9 +422,9 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>287.29238891601562</real>
-							<real>538.6820068359375</real>
-							<integer>0</integer>
+							<real>32.707611083984375</real>
+							<real>29.3179931640625</real>
+							<integer>2</integer>
 							<integer>0</integer>
 							<integer>0</integer>
 						</array>
@@ -750,9 +748,9 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>242.13423156738281</real>
-							<real>538.89923095703125</real>
-							<integer>0</integer>
+							<real>77.865768432617188</real>
+							<real>29.10076904296875</real>
+							<integer>2</integer>
 							<integer>0</integer>
 							<integer>0</integer>
 						</array>
@@ -1046,7 +1044,7 @@
 			</dict>
 		</array>
 		<key>customClass</key>
-		<string></string>
+		<string>Gameplay</string>
 		<key>displayName</key>
 		<string>CCNode</string>
 		<key>memberVarAssignmentName</key>
@@ -1115,6 +1113,8 @@
 				</array>
 			</dict>
 		</array>
+		<key>selected</key>
+		<true/>
 	</dict>
 	<key>notes</key>
 	<array/>
