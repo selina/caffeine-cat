@@ -10,6 +10,8 @@
 
 @interface Cup : CCNode
 
-@property (nonatomic, assign) BOOL empty;
+@property (nonatomic, assign) BOOL isEmpty;
+@property (nonatomic, assign) float x_position;
+@property (nonatomic, assign) float y_position; 
 
 @end
