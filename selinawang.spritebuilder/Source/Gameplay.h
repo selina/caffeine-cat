@@ -10,9 +10,14 @@
 
 @interface Gameplay : CCNode <CCPhysicsCollisionDelegate>
 
-{
-    float timeSinceCup; 
-}
+
+@property (nonatomic, strong) NSMutableArray *coffeeCupsOnScreen;
+
+
+@property (nonatomic, assign) float timeSinceCup;
+
+
+
 
 
 

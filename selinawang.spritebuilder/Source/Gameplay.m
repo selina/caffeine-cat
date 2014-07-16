@@ -14,10 +14,9 @@
     CCPhysicsNode *_physicsNode;
     CCNode *_contentNode;
     NSMutableArray *_coffeeCupTypeArray;
-    NSMutableArray *_coffeeCupPositionArray;
-    NSMutableArray *_coffeeCupsOnScreen;
     int catEnergy;
     float randomfloat;
+    CCNode *_background;
     
 }
 
@@ -27,10 +26,11 @@
     self.userInteractionEnabled = TRUE;
     
     _coffeeCupTypeArray = [NSMutableArray arrayWithObjects: @"orange", @"yellow", @"red", nil];
-    _coffeeCupsOnScreen = [NSMutableArray arrayWithObjects: nil];
+    self.coffeeCupsOnScreen = [NSMutableArray arrayWithObjects: nil];
     
-    [self schedule:@selector(updateCupPosition) interval:1];
-   
+    
+    [self schedule:@selector(updateCupPosition) interval:.02];
+    _physicsNode.debugDraw = true;
 }
 
 - (void)update:(CCTime)delta {
@@ -56,16 +56,18 @@
     cupinstance.positionType = CCPositionTypeNormalized;
     cupinstance.position = cupLocation;
     
-    [self addChild:cupinstance];
+    cupinstance.gameplayLayer = self; 
+    [_physicsNode addChild:cupinstance];
     
-    [_coffeeCupsOnScreen addObject:cupinstance];
+    [self.coffeeCupsOnScreen addObject:cupinstance];
+//    [_coffeeCupBoundingBoxArray addObject:cupinstance boundingBox];
 }
 
 -(void)updateCupPosition {
     //moves each cup in the array of cups on screen down
     
     for (Cup *cup in _coffeeCupsOnScreen) {
-        cup.positionInPoints = ccp(cup.positionInPoints.x, (cup.positionInPoints.y - 50));
+        cup.positionInPoints = ccp(cup.positionInPoints.x, (cup.positionInPoints.y - 1));
     }
 }
 
@@ -74,48 +76,28 @@
     
     srandom(time(NULL));
     
-    timeSinceCup += delta;
+    _timeSinceCup += delta;
     
-    if (timeSinceCup > randomfloat) {
+    if (_timeSinceCup > randomfloat) {
         [self generateCup];
-        timeSinceCup = 0;
+        _timeSinceCup = 0;
         randomfloat = (CCRANDOM_0_1() * 3) + 1;
     }
 }
 
 
-- (void)removeCup {
-    
-    [_coffeeCupsOnScreen removeObject:self];
-    [self removeFromParent];
-    
-    
-    // TODO: particle effect
-}
+
 
 
 // called on every touch
-//- (void)touchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
-//    CGPoint touchLocation = [touch locationInNode:_contentNode];
-//    if (touchLocation in _coffeeCupPositionArray) {
-//        
-//    }
-//    else {
-//        pass;
-//    }
-//}
-
-- (void)cupTapped {
-    
+- (void)touchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
+    CGPoint touchLocation = [touch locationInNode:_contentNode];
+    NSLog(@"gameplay touchBegan");
 }
 
-//randomized background color:
 
-//CGFloat hue = ( arc4random() % 256 / 256.0 );  //  0.0 to 1.0
-//CGFloat saturation = ( arc4random() % 128 / 256.0 ) + 0.5;  //  0.5 to 1.0, away from white
-//CGFloat brightness = ( arc4random() % 128 / 256.0 ) + 0.5;  //  0.5 to 1.0, away from black
-//UIColor *color = [UIColor colorWithHue:hue saturation:saturation brightness:brightness alpha:1];
-//
+
+
 
 
 

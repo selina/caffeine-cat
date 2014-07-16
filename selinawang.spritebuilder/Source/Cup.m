@@ -7,7 +7,26 @@
 //
 
 #import "Cup.h"
+#import "Gameplay.h"
+
 
 @implementation Cup
+
+-(void)didLoadFromCCB {
+    self.userInteractionEnabled = true; 
+}
+
+-(void) touchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
+    [self removeCup];
+}
+
+-(void)removeCup {
+    
+    [self.gameplayLayer.coffeeCupsOnScreen removeObject:self];
+    [self removeFromParent];
+    
+    
+    // TODO: particle effect
+}
 
 @end
