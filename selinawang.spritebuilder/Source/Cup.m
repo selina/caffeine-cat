@@ -22,8 +22,11 @@
 
 -(void)removeCup {
     
-    [self.gameplayLayer.coffeeCupsOnScreen removeObject:self];
-    [self removeFromParent];
+    if ([self.cupcolor isEqualToString: @"yellow"]) {
+        [self.gameplayLayer.coffeeCupsOnScreen removeObject:self];
+        [self removeFromParent];
+
+    }
     
     
     // TODO: particle effect

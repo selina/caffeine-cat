@@ -15,6 +15,7 @@
 @property (nonatomic, assign) float x_position;
 @property (nonatomic, assign) float y_position;
 @property (nonatomic, weak) Gameplay *gameplayLayer;
+@property (nonatomic, strong) NSString *cupcolor;
 
 -(void)removeCup;
 

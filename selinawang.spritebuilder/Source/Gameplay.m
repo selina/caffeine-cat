@@ -30,7 +30,7 @@
     
     
     [self schedule:@selector(updateCupPosition) interval:.02];
-    _physicsNode.debugDraw = true;
+    //_physicsNode.debugDraw = true;
 }
 
 - (void)update:(CCTime)delta {
@@ -43,6 +43,8 @@
     
     int randomint = arc4random() % 3;
     Cup *cupinstance = (Cup*)[CCBReader load:[_coffeeCupTypeArray objectAtIndex:randomint]];
+    cupinstance.cupcolor = [_coffeeCupTypeArray objectAtIndex:randomint];
+    
     
     srandom(time(NULL));
     
@@ -90,10 +92,10 @@
 
 
 // called on every touch
-- (void)touchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
-    CGPoint touchLocation = [touch locationInNode:_contentNode];
-    NSLog(@"gameplay touchBegan");
-}
+//- (void)touchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
+//    CGPoint touchLocation = [touch locationInNode:_contentNode];
+//    NSLog(@"gameplay touchBegan");
+//}
 
 
 
