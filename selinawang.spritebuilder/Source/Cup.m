@@ -17,18 +17,27 @@
 }
 
 -(void) touchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
-    [self removeCup];
+    [self cupTapped];
 }
 
--(void)removeCup {
+-(void)cupTapped {
     
-    if ([self.cupcolor isEqualToString: @"yellow"]) {
-        [self.gameplayLayer.coffeeCupsOnScreen removeObject:self];
-        [self removeFromParent];
-
+    if (self.isEmpty == true) {
+        [self removeCup];
+    }
+    else if ([self.cupfill isEqualToString:@"orange"]) {
+        self.isEmpty = true;
+    }
+    else if ([self.cupfill isEqualToString:@"red"]) {
+        self.cupfill = @"orange";
     }
     
     
+}
+
+-(void)removeCup {
+    [self.gameplayLayer.coffeeCupsOnScreen removeObject:self];
+    [self removeFromParent];
     // TODO: particle effect
 }
 

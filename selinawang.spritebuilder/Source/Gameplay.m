@@ -43,8 +43,14 @@
     
     int randomint = arc4random() % 3;
     Cup *cupinstance = (Cup*)[CCBReader load:[_coffeeCupTypeArray objectAtIndex:randomint]];
-    cupinstance.cupcolor = [_coffeeCupTypeArray objectAtIndex:randomint];
+    cupinstance.cupfill = [_coffeeCupTypeArray objectAtIndex:randomint];
     
+    if ([cupinstance.cupfill isEqualToString:@"yellow"]) {
+        cupinstance.isEmpty = true;
+    }
+    else if ([cupinstance.cupfill isEqualToString:@"orange"] || [cupinstance.cupfill isEqualToString:@"red"]) {
+        cupinstance.isEmpty = false;
+    }
     
     srandom(time(NULL));
     
