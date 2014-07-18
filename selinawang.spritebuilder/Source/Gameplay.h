@@ -12,7 +12,7 @@
 
 
 @property (nonatomic, strong) NSMutableArray *coffeeCupsOnScreen;
-
+@property (nonatomic, strong) CCPhysicsNode *currentPhysicsNode; 
 
 @property (nonatomic, assign) float timeSinceCup;
 

@@ -25,12 +25,13 @@
     // tell the scene to accept touches
     self.userInteractionEnabled = TRUE;
     
+    self.currentPhysicsNode = _physicsNode; 
     _coffeeCupTypeArray = [NSMutableArray arrayWithObjects: @"orange", @"yellow", @"red", nil];
     self.coffeeCupsOnScreen = [NSMutableArray arrayWithObjects: nil];
     
     
     [self schedule:@selector(updateCupPosition) interval:.02];
-    //_physicsNode.debugDraw = true;
+    _physicsNode.debugDraw = true;
 }
 
 - (void)update:(CCTime)delta {
