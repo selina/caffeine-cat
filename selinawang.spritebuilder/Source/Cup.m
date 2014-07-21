@@ -18,11 +18,13 @@
     self.userInteractionEnabled = true; 
 }
 
+//called on every touch
 -(void) touchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
     [self cupTapped];
 }
 
 -(void)cupTapped {
+    //changes color and loads liquid when cup is tapped
     
     if (self.isEmpty == true) {
         [self removeCup];
@@ -40,6 +42,7 @@
     }
 }
 
+//loads a ball of coffee at the position of the cup
 -(void)loadLiquid {
     CCNode *liquid = [CCBReader load:@"liquid"];
     liquid.position = self.positionInPoints;
@@ -47,6 +50,7 @@
     
 }
 
+//pretty self explanatory...
 -(void)removeCup {
     [self.gameplayLayer.coffeeCupsOnScreen removeObject:self];
     [self removeFromParent];
