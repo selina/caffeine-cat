@@ -30,13 +30,13 @@
     else if ([self.cupfill isEqualToString:@"orange"]) {
         self.isEmpty = true;
         [self loadLiquid];
-        
-        
-//        [[self animationManager] runAnimationsForSequenceNamed:@"timelineName"];
+        [[self animationManager] runAnimationsForSequenceNamed:@"yellow"];
     }
     else if ([self.cupfill isEqualToString:@"red"]) {
         self.cupfill = @"orange";
         [self loadLiquid];
+        [[self animationManager] runAnimationsForSequenceNamed:@"orange"];
+        
     }
 }
 
@@ -44,7 +44,7 @@
     CCNode *liquid = [CCBReader load:@"liquid"];
     liquid.position = self.positionInPoints;
     [self.gameplayLayer.currentPhysicsNode addChild:liquid];
-
+    
 }
 
 -(void)removeCup {

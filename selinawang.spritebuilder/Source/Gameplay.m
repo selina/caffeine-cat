@@ -31,7 +31,7 @@
     
     
     [self schedule:@selector(updateCupPosition) interval:.02];
-    _physicsNode.debugDraw = true;
+    //_physicsNode.debugDraw = true;
 }
 
 - (void)update:(CCTime)delta {
