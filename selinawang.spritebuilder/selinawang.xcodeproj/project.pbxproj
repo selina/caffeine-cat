@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6A321908197EA8C900648C5C /* CCPhysicsTouchNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A321907197EA8C900648C5C /* CCPhysicsTouchNode.m */; };
 		6AA33A5F19746A7500358E54 /* Cup.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AA33A5E19746A7500358E54 /* Cup.m */; };
 		6AB0AC5E197030CE009816A7 /* Gameplay.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AB0AC5D197030CE009816A7 /* Gameplay.m */; };
 		8392007A18EE8E3300B6C429 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8392007918EE8E3300B6C429 /* GLKit.framework */; };
@@ -58,6 +59,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6A321906197EA8C900648C5C /* CCPhysicsTouchNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCPhysicsTouchNode.h; sourceTree = "<group>"; };
+		6A321907197EA8C900648C5C /* CCPhysicsTouchNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCPhysicsTouchNode.m; sourceTree = "<group>"; };
 		6AA33A5D19746A7500358E54 /* Cup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Cup.h; path = Source/Cup.h; sourceTree = "<group>"; };
 		6AA33A5E19746A7500358E54 /* Cup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Cup.m; path = Source/Cup.m; sourceTree = "<group>"; };
 		6AB0AC5C197030CE009816A7 /* Gameplay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Gameplay.h; path = Source/Gameplay.h; sourceTree = "<group>"; };
@@ -139,6 +142,8 @@
 				6AB0AC5D197030CE009816A7 /* Gameplay.m */,
 				6AA33A5D19746A7500358E54 /* Cup.h */,
 				6AA33A5E19746A7500358E54 /* Cup.m */,
+				6A321906197EA8C900648C5C /* CCPhysicsTouchNode.h */,
+				6A321907197EA8C900648C5C /* CCPhysicsTouchNode.m */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -355,6 +360,7 @@
 				6AB0AC5E197030CE009816A7 /* Gameplay.m in Sources */,
 				B7378994180767190076A88C /* MainScene.m in Sources */,
 				B73789871807631A0076A88C /* main.m in Sources */,
+				6A321908197EA8C900648C5C /* CCPhysicsTouchNode.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
