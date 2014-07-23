@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		6A321908197EA8C900648C5C /* CCPhysicsTouchNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A321907197EA8C900648C5C /* CCPhysicsTouchNode.m */; };
+		6A7CCEB3198035D800C2511C /* Cat.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A7CCEB2198035D800C2511C /* Cat.m */; };
+		6A7CCEB71980369400C2511C /* Ball.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A7CCEB61980369400C2511C /* Ball.m */; };
 		6AA33A5F19746A7500358E54 /* Cup.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AA33A5E19746A7500358E54 /* Cup.m */; };
 		6AB0AC5E197030CE009816A7 /* Gameplay.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AB0AC5D197030CE009816A7 /* Gameplay.m */; };
 		8392007A18EE8E3300B6C429 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8392007918EE8E3300B6C429 /* GLKit.framework */; };
@@ -61,6 +63,10 @@
 /* Begin PBXFileReference section */
 		6A321906197EA8C900648C5C /* CCPhysicsTouchNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCPhysicsTouchNode.h; sourceTree = "<group>"; };
 		6A321907197EA8C900648C5C /* CCPhysicsTouchNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCPhysicsTouchNode.m; sourceTree = "<group>"; };
+		6A7CCEB1198035D800C2511C /* Cat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Cat.h; path = Source/Cat.h; sourceTree = "<group>"; };
+		6A7CCEB2198035D800C2511C /* Cat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Cat.m; path = Source/Cat.m; sourceTree = "<group>"; };
+		6A7CCEB51980369400C2511C /* Ball.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Ball.h; path = Source/Ball.h; sourceTree = "<group>"; };
+		6A7CCEB61980369400C2511C /* Ball.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Ball.m; path = Source/Ball.m; sourceTree = "<group>"; };
 		6AA33A5D19746A7500358E54 /* Cup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Cup.h; path = Source/Cup.h; sourceTree = "<group>"; };
 		6AA33A5E19746A7500358E54 /* Cup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Cup.m; path = Source/Cup.m; sourceTree = "<group>"; };
 		6AB0AC5C197030CE009816A7 /* Gameplay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Gameplay.h; path = Source/Gameplay.h; sourceTree = "<group>"; };
@@ -142,6 +148,10 @@
 				6AB0AC5D197030CE009816A7 /* Gameplay.m */,
 				6AA33A5D19746A7500358E54 /* Cup.h */,
 				6AA33A5E19746A7500358E54 /* Cup.m */,
+				6A7CCEB1198035D800C2511C /* Cat.h */,
+				6A7CCEB2198035D800C2511C /* Cat.m */,
+				6A7CCEB51980369400C2511C /* Ball.h */,
+				6A7CCEB61980369400C2511C /* Ball.m */,
 				6A321906197EA8C900648C5C /* CCPhysicsTouchNode.h */,
 				6A321907197EA8C900648C5C /* CCPhysicsTouchNode.m */,
 			);
@@ -262,7 +272,7 @@
 		B77F1B2617B978D7009739AE /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0460;
+				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = Apportable;
 				TargetAttributes = {
 					B77F1B2D17B978D7009739AE = {
@@ -357,7 +367,9 @@
 			files = (
 				B737893F1807617C0076A88C /* AppDelegate.m in Sources */,
 				6AA33A5F19746A7500358E54 /* Cup.m in Sources */,
+				6A7CCEB3198035D800C2511C /* Cat.m in Sources */,
 				6AB0AC5E197030CE009816A7 /* Gameplay.m in Sources */,
+				6A7CCEB71980369400C2511C /* Ball.m in Sources */,
 				B7378994180767190076A88C /* MainScene.m in Sources */,
 				B73789871807631A0076A88C /* main.m in Sources */,
 				6A321908197EA8C900648C5C /* CCPhysicsTouchNode.m in Sources */,
@@ -378,7 +390,12 @@
 		B77F1CDC17B978D8009739AE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -388,9 +405,14 @@
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -399,7 +421,12 @@
 		B77F1CDD17B978D8009739AE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -407,7 +434,11 @@
 					"NS_BLOCK_ASSERTIONS=1",
 				);
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				SDKROOT = iphoneos;
@@ -419,7 +450,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -453,7 +483,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";

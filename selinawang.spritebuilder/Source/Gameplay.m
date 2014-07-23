@@ -9,6 +9,7 @@
 
 #import "Gameplay.h"
 #import "Cup.h"
+#import "CCPhysics+ObjectiveChipmunk.h"
 
 @implementation Gameplay {
     CCPhysicsNode *_physicsNode;
@@ -32,6 +33,7 @@
     
     [self schedule:@selector(updateCupPosition) interval:.02];
     //_physicsNode.debugDraw = true;
+    _physicsNode.collisionDelegate = self; 
 }
 
 - (void)update:(CCTime)delta {
@@ -67,9 +69,9 @@
     
     cupinstance.gameplayLayer = self; 
     [_physicsNode addChild:cupinstance];
+    //[_contentNode addChild:cupinstance];
     
     [self.coffeeCupsOnScreen addObject:cupinstance];
-//    [_coffeeCupBoundingBoxArray addObject:cupinstance boundingBox];
 }
 
 -(void)updateCupPosition {
@@ -94,21 +96,27 @@
     }
 }
 
+-(BOOL) ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair cat:(CCNode *)cat ball:(CCNode *)balloon {
+    balloon.visible=NO;
+    balloon.physicsBody.collisionMask=@[];
+//    [[_physicsNode space] addPostStepBlock:^{
+//        [self ballRemoved:balloon];
+//    } key:cat];
+    return NO;
+}
 
+-(BOOL) ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair cat:(CCNode *)nodeA cup:(CCNode *)nodeB {
+    return NO;
+}
 
+-(BOOL) ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair ball:(CCNode *)nodeA cup:(CCNode *)nodeB {
+    return NO;
+}
 
-
-// called on every touch
-//- (void)touchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
-//    CGPoint touchLocation = [touch locationInNode:_contentNode];
-//    NSLog(@"gameplay touchBegan");
-//}
-
-
-
-
-
-
+     
+-(void)ballRemoved:(CCNode *)ball {
+         [ball removeFromParent];
+}
 
 
 @end

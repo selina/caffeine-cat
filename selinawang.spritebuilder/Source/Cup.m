@@ -15,7 +15,9 @@
 }
 
 -(void)didLoadFromCCB {
-    self.userInteractionEnabled = true; 
+    self.userInteractionEnabled = true;
+    self.physicsBody.collisionType = @"cup";
+    self.physicsBody.collisionMask = @[@"cup"];
 }
 
 //called on every touch
@@ -50,7 +52,7 @@
     
 }
 
-//pretty self explanatory...
+
 -(void)removeCup {
     [self.gameplayLayer.coffeeCupsOnScreen removeObject:self];
     [self removeFromParent];

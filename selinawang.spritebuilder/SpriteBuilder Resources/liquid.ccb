@@ -96,9 +96,9 @@
 						<string>ScaleLock</string>
 						<key>value</key>
 						<array>
-							<real>0.25</real>
-							<real>0.25</real>
-							<false/>
+							<real>0.40000000596046448</real>
+							<real>0.40000000596046448</real>
+							<true/>
 							<integer>0</integer>
 						</array>
 					</dict>
@@ -130,7 +130,7 @@
 			</dict>
 		</array>
 		<key>customClass</key>
-		<string></string>
+		<string>Ball</string>
 		<key>displayName</key>
 		<string>CCNode</string>
 		<key>memberVarAssignmentName</key>
@@ -152,7 +152,7 @@
 			<key>collisionType</key>
 			<string></string>
 			<key>cornerRadius</key>
-			<real>18.0859375</real>
+			<real>24.73046875</real>
 			<key>density</key>
 			<real>1</real>
 			<key>dynamic</key>
@@ -164,8 +164,8 @@
 			<key>points</key>
 			<array>
 				<array>
-					<real>2.144561767578125</real>
-					<real>5.6015777587890625</real>
+					<real>1.281280517578125</real>
+					<real>6.5976715087890625</real>
 				</array>
 			</array>
 			<key>polygons</key>
