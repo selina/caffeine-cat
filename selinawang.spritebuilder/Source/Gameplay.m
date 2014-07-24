@@ -18,6 +18,7 @@
     int catEnergy;
     float randomfloat;
     CCNode *_background;
+    int timeSinceStart;
     
 }
 
@@ -39,6 +40,11 @@
 - (void)update:(CCTime)delta {
     [self generateNewCup:delta];
    
+}
+
+- (void)pause {
+    CCScene *pauseScene = [CCBReader loadAsScene:@"PauseScene"];
+    [[CCDirector sharedDirector] replaceScene:pauseScene];
 }
 
 -(void)generateCup{
@@ -109,7 +115,11 @@
     return NO;
 }
 
--(BOOL) ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair ball:(CCNode *)nodeA cup:(CCNode *)nodeB {
+//-(BOOL) ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair ball:(CCNode *)nodeA cup:(CCNode *)nodeB {
+//    return NO;
+//}
+
+-(BOOL) ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair buffer:(CCNode *)nodeA cup:(CCNode *)nodeB {
     return NO;
 }
 
@@ -117,6 +127,11 @@
 -(void)ballRemoved:(CCNode *)ball {
          [ball removeFromParent];
 }
+
+-(void)updateTime {
+    timeSinceStart += 1; 
+}
+
 
 
 @end

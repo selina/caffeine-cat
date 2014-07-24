@@ -9,9 +9,7 @@
 #import "Cat.h"
 
 @implementation Cat {
-    float speed;
-    float x;
-    float y;
+    
 }
 
 -(void)didLoadFromCCB {
