@@ -10,6 +10,7 @@
 		6A321908197EA8C900648C5C /* CCPhysicsTouchNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A321907197EA8C900648C5C /* CCPhysicsTouchNode.m */; };
 		6A7CCEB3198035D800C2511C /* Cat.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A7CCEB2198035D800C2511C /* Cat.m */; };
 		6A7CCEB71980369400C2511C /* Ball.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A7CCEB61980369400C2511C /* Ball.m */; };
+		6A7F7DFD1982F66E00290813 /* Pause.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A7F7DFC1982F66E00290813 /* Pause.m */; };
 		6AA33A5F19746A7500358E54 /* Cup.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AA33A5E19746A7500358E54 /* Cup.m */; };
 		6AB0AC5E197030CE009816A7 /* Gameplay.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AB0AC5D197030CE009816A7 /* Gameplay.m */; };
 		8392007A18EE8E3300B6C429 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8392007918EE8E3300B6C429 /* GLKit.framework */; };
@@ -67,6 +68,8 @@
 		6A7CCEB2198035D800C2511C /* Cat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Cat.m; path = Source/Cat.m; sourceTree = "<group>"; };
 		6A7CCEB51980369400C2511C /* Ball.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Ball.h; path = Source/Ball.h; sourceTree = "<group>"; };
 		6A7CCEB61980369400C2511C /* Ball.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Ball.m; path = Source/Ball.m; sourceTree = "<group>"; };
+		6A7F7DFB1982F66E00290813 /* Pause.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Pause.h; path = Source/Pause.h; sourceTree = "<group>"; };
+		6A7F7DFC1982F66E00290813 /* Pause.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Pause.m; path = Source/Pause.m; sourceTree = "<group>"; };
 		6AA33A5D19746A7500358E54 /* Cup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Cup.h; path = Source/Cup.h; sourceTree = "<group>"; };
 		6AA33A5E19746A7500358E54 /* Cup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Cup.m; path = Source/Cup.m; sourceTree = "<group>"; };
 		6AB0AC5C197030CE009816A7 /* Gameplay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Gameplay.h; path = Source/Gameplay.h; sourceTree = "<group>"; };
@@ -144,6 +147,8 @@
 				B737893E1807617C0076A88C /* AppDelegate.m */,
 				B7378992180767190076A88C /* MainScene.h */,
 				B7378993180767190076A88C /* MainScene.m */,
+				6A7F7DFB1982F66E00290813 /* Pause.h */,
+				6A7F7DFC1982F66E00290813 /* Pause.m */,
 				6AB0AC5C197030CE009816A7 /* Gameplay.h */,
 				6AB0AC5D197030CE009816A7 /* Gameplay.m */,
 				6AA33A5D19746A7500358E54 /* Cup.h */,
@@ -371,6 +376,7 @@
 				6AB0AC5E197030CE009816A7 /* Gameplay.m in Sources */,
 				6A7CCEB71980369400C2511C /* Ball.m in Sources */,
 				B7378994180767190076A88C /* MainScene.m in Sources */,
+				6A7F7DFD1982F66E00290813 /* Pause.m in Sources */,
 				B73789871807631A0076A88C /* main.m in Sources */,
 				6A321908197EA8C900648C5C /* CCPhysicsTouchNode.m in Sources */,
 			);

@@ -208,7 +208,7 @@
 						<string>Block</string>
 						<key>value</key>
 						<array>
-							<string></string>
+							<string>resume</string>
 							<integer>1</integer>
 						</array>
 					</dict>
@@ -536,7 +536,7 @@
 						<string>Block</string>
 						<key>value</key>
 						<array>
-							<string></string>
+							<string>quit</string>
 							<integer>1</integer>
 						</array>
 					</dict>
@@ -794,7 +794,7 @@
 			</dict>
 		</array>
 		<key>customClass</key>
-		<string></string>
+		<string>Pause</string>
 		<key>displayName</key>
 		<string>CCNode</string>
 		<key>memberVarAssignmentName</key>
