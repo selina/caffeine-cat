@@ -15,7 +15,7 @@
 @property (nonatomic, strong) CCPhysicsNode *currentPhysicsNode; 
 
 @property (nonatomic, assign) float timeSinceCup;
-
+@property (nonatomic, assign) int score; 
 
 
 

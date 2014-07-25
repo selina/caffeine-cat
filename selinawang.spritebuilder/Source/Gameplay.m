@@ -120,7 +120,12 @@
 //}
 
 -(BOOL) ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair buffer:(CCNode *)nodeA cup:(CCNode *)nodeB {
-    return NO;
+//    if (nodeB in _contentNode.) {
+//        return YES;
+//    }
+//    else {
+        return NO;
+//    }
 }
 
      
