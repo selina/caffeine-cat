@@ -33,6 +33,7 @@
     
     
     [self schedule:@selector(updateCupPosition) interval:.02];
+    [self schedule:@selector(updateTime) interval:1];
     //_physicsNode.debugDraw = true;
     _physicsNode.collisionDelegate = self; 
 }
