@@ -139,8 +139,13 @@
 //change the timer every second
 -(void)updateTime {
     timeSinceStart += 1;
-    NSString *timeString = [NSString stringWithFormat:@"%d", timeSinceStart];
+    
+    int seconds = timeSinceStart % 60;
+    int minutes = (timeSinceStart / 60) % 60;
+    
+    NSString *timeString = [NSString stringWithFormat:@"%d:%02d", minutes, seconds];
     _timeLabel.string = timeString;
+  
     
     }
 
