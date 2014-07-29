@@ -14,10 +14,11 @@
 
 -(void)didLoadFromCCB {
     self.physicsBody.collisionType = @"cat";
-    
-        
 }
 
+-(void)speedUpCat {
+    [self animationManager].playbackSpeed = 0.4;
+}
 
 
 @end

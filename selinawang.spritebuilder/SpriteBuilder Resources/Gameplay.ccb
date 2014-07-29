@@ -300,6 +300,8 @@
 								</array>
 							</dict>
 						</array>
+						<key>selected</key>
+						<true/>
 					</dict>
 					<dict>
 						<key>UUID</key>
@@ -1501,7 +1503,7 @@
 				<key>displayName</key>
 				<string>CCLabelTTF</string>
 				<key>memberVarAssignmentName</key>
-				<string></string>
+				<string>_timeLabel</string>
 				<key>memberVarAssignmentType</key>
 				<integer>1</integer>
 				<key>properties</key>
@@ -1521,8 +1523,8 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>195.06114196777344</real>
-							<real>121.10978698730469</real>
+							<real>251.71247863769531</real>
+							<real>23.170181274414062</real>
 							<integer>0</integer>
 							<integer>0</integer>
 							<integer>0</integer>
@@ -1559,7 +1561,7 @@
 						<string>Text</string>
 						<key>value</key>
 						<array>
-							<string>TIME LABEL</string>
+							<string>0</string>
 							<false/>
 						</array>
 					</dict>
@@ -1578,7 +1580,7 @@
 						<string>FloatScale</string>
 						<key>value</key>
 						<array>
-							<real>12</real>
+							<real>20</real>
 							<integer>0</integer>
 						</array>
 					</dict>
@@ -2176,7 +2178,7 @@
 						<key>displayName</key>
 						<string>CCNode</string>
 						<key>memberVarAssignmentName</key>
-						<string></string>
+						<string>_scorebar</string>
 						<key>memberVarAssignmentType</key>
 						<integer>1</integer>
 						<key>properties</key>

@@ -19,7 +19,8 @@
     float randomfloat;
     CCNode *_background;
     int timeSinceStart;
-    
+    CCLabelTTF *_timeLabel;
+    CCNode *_scorebar;
 }
 
 
@@ -134,8 +135,17 @@
          [ball removeFromParent];
 }
 
+
+//change the timer every second
 -(void)updateTime {
-    timeSinceStart += 1; 
+    timeSinceStart += 1;
+    NSString *timeString = [NSString stringWithFormat:@"%d", timeSinceStart];
+    _timeLabel.string = timeString;
+    
+    }
+
+-(void)changeEnergy {
+    _scorebar.scaleY = self.energy/self.totalEnergy;
 }
 
 
