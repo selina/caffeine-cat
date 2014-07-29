@@ -7,6 +7,7 @@
 //
 
 #import "Cat.h"
+#import "Gameplay.h"
 
 @implementation Cat {
     
@@ -14,10 +15,14 @@
 
 -(void)didLoadFromCCB {
     self.physicsBody.collisionType = @"cat";
+    [self schedule:@selector(speedUpCat) interval:20];
 }
 
 -(void)speedUpCat {
-    [self animationManager].playbackSpeed = 0.4;
+    //every thirty seconds, cat gets .1 faster
+    float speedIncrease = 1.1;
+    [self.gameplayLayer animationManager].playbackSpeed *= speedIncrease;
+    
 }
 
 

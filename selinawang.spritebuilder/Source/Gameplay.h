@@ -16,8 +16,6 @@
 
 @property (nonatomic, assign) float timeSinceCup;
 
-@property (nonatomic, assign) int energy;
-@property (nonatomic, assign) int totalEnergy; 
 
 
 

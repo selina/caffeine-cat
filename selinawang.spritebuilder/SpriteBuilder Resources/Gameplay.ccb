@@ -1341,7 +1341,7 @@
 						<key>displayName</key>
 						<string>cat</string>
 						<key>memberVarAssignmentName</key>
-						<string></string>
+						<string>_cat</string>
 						<key>memberVarAssignmentType</key>
 						<integer>1</integer>
 						<key>properties</key>
@@ -1395,6 +1395,8 @@
 								<string>cat.ccb</string>
 							</dict>
 						</array>
+						<key>selected</key>
+						<true/>
 						<key>seqExpanded</key>
 						<true/>
 					</dict>
@@ -1695,8 +1697,6 @@
 						</array>
 					</dict>
 				</array>
-				<key>selected</key>
-				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
@@ -1730,8 +1730,8 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>0.080384828150272369</real>
-							<real>0.9500657320022583</real>
+							<real>0.069026276469230652</real>
+							<real>0.95763260126113892</real>
 							<integer>2</integer>
 							<integer>2</integer>
 							<integer>2</integer>
@@ -2477,7 +2477,7 @@
 			<key>offset</key>
 			<real>0.0</real>
 			<key>position</key>
-			<real>3</real>
+			<real>0.0</real>
 			<key>resolution</key>
 			<real>30</real>
 			<key>scale</key>

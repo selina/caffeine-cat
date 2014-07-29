@@ -10,4 +10,6 @@
 
 @interface Ball : CCNode
 
+@property (nonatomic, assign) float coffeeEnergy;
+
 @end

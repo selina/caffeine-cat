@@ -8,6 +8,10 @@
 
 #import "CCNode.h"
 
+@class Gameplay; 
+
 @interface Cat : CCNode
+
+@property (nonatomic, weak) Gameplay *gameplayLayer;
 
 @end

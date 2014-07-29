@@ -10,6 +10,8 @@
 #import "Gameplay.h"
 #import "Cup.h"
 #import "CCPhysics+ObjectiveChipmunk.h"
+#import "Cat.h"
+#import "Ball.h"
 
 @implementation Gameplay {
     CCPhysicsNode *_physicsNode;
@@ -21,6 +23,10 @@
     int timeSinceStart;
     CCLabelTTF *_timeLabel;
     CCNode *_scorebar;
+    float energy;
+    float totalEnergy;
+    Cat *_cat;
+    
 }
 
 
@@ -31,7 +37,7 @@
     self.currentPhysicsNode = _physicsNode; 
     _coffeeCupTypeArray = [NSMutableArray arrayWithObjects: @"orange", @"yellow", @"red", nil];
     self.coffeeCupsOnScreen = [NSMutableArray arrayWithObjects: nil];
-    
+    _cat.gameplayLayer = self; 
     
     [self schedule:@selector(updateCupPosition) interval:.02];
     [self schedule:@selector(updateTime) interval:1];
@@ -104,9 +110,11 @@
     }
 }
 
--(BOOL) ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair cat:(CCNode *)cat ball:(CCNode *)balloon {
-    balloon.visible=NO;
-    balloon.physicsBody.collisionMask=@[];
+//when the cat collides with the coffee ball, remove the ball
+-(BOOL) ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair cat:(CCNode *)cat ball:(Ball *)coffeeball {
+    coffeeball.visible=NO;
+    coffeeball.physicsBody.collisionMask=@[];
+    energy += coffeeball.coffeeEnergy;
 //    [[_physicsNode space] addPostStepBlock:^{
 //        [self ballRemoved:balloon];
 //    } key:cat];
@@ -132,7 +140,7 @@
 
      
 -(void)ballRemoved:(CCNode *)ball {
-         [ball removeFromParent];
+    [ball removeFromParent];
 }
 
 
@@ -145,15 +153,12 @@
     
     NSString *timeString = [NSString stringWithFormat:@"%d:%02d", minutes, seconds];
     _timeLabel.string = timeString;
-  
-    
     }
 
 -(void)changeEnergy {
-    _scorebar.scaleY = self.energy/self.totalEnergy;
+    _scorebar.scaleX = energy/totalEnergy;
+    
 }
-
-
 
 @end
 
