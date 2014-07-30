@@ -16,5 +16,10 @@
     [[CCDirector sharedDirector] replaceScene:mainScene];
 }
 
+-(void)restart {
+    CCScene *mainScene = [CCBReader loadAsScene:@"Gameplay"];
+    [[CCDirector sharedDirector] replaceScene:mainScene];
+}
+
 
 @end
