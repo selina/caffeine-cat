@@ -24,7 +24,7 @@
 // TODO: add settings
 
 -(void)settings {
-    CCScene *mainScene = [CCBReader loadAsScene:@""];
+    CCScene *mainScene = [CCBReader loadAsScene:@"Settings"];
     [[CCDirector sharedDirector] replaceScene:mainScene];
 }
 
