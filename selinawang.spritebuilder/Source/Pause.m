@@ -21,5 +21,11 @@
     [[CCDirector sharedDirector] replaceScene:mainScene];
 }
 
+// TODO: add settings
+
+-(void)settings {
+    CCScene *mainScene = [CCBReader loadAsScene:@""];
+    [[CCDirector sharedDirector] replaceScene:mainScene];
+}
 
 @end

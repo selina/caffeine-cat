@@ -39,7 +39,7 @@
     self.coffeeCupsOnScreen = [NSMutableArray arrayWithObjects: nil];
     _cat.gameplayLayer = self; 
     
-    [self schedule:@selector(updateCupPosition) interval:.02];
+    [self schedule:@selector(updateCupPosition) interval:.01];
     [self schedule:@selector(updateTime) interval:1];
     //_physicsNode.debugDraw = true;
     _physicsNode.collisionDelegate = self; 
@@ -155,10 +155,14 @@
     _timeLabel.string = timeString;
     }
 
--(void)changeEnergy {
+-(void)changeScorebarScale {
     _scorebar.scaleX = energy/totalEnergy;
     
 }
+
+//-(void)loseEnergy {
+//    energy -= ;
+//}
 
 @end
 
