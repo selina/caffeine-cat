@@ -33,7 +33,7 @@
 - (void)didLoadFromCCB {
     // tell the scene to accept touches
     self.userInteractionEnabled = TRUE;
-    
+    self.contentNode = _contentNode; 
     self.currentPhysicsNode = _physicsNode; 
     _coffeeCupTypeArray = [NSMutableArray arrayWithObjects: @"orange", @"yellow", @"red", nil];
     self.coffeeCupsOnScreen = [NSMutableArray arrayWithObjects: nil];
@@ -93,6 +93,7 @@
     
     for (Cup *cup in _coffeeCupsOnScreen) {
         cup.positionInPoints = ccp(cup.positionInPoints.x, (cup.positionInPoints.y - 1));
+        [cup checkIfCupInGameplay]; 
     }
 }
 
@@ -129,14 +130,16 @@
 //    return NO;
 //}
 
--(BOOL) ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair buffer:(CCNode *)nodeA cup:(CCNode *)nodeB {
-//    if (nodeB in _contentNode.) {
-//        return YES;
-//    }
-//    else {
+-(BOOL) ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair buffer:(CCNode *)nodeA cup:(Cup *)nodeB {
+    if (nodeB.didEnterGameplay == true) {
+        return YES;
+    }
+    else {
         return NO;
-//    }
+    }
 }
+
+
 
      
 -(void)ballRemoved:(CCNode *)ball {

@@ -17,7 +17,7 @@
 -(void)didLoadFromCCB {
     self.userInteractionEnabled = true;
     self.physicsBody.collisionType = @"cup";
-    self.physicsBody.collisionMask = @[@"cup"];
+    //self.physicsBody.collisionMask = @[@"cup"];
 }
 
 //called on every touch
@@ -57,6 +57,18 @@
     [self.gameplayLayer.coffeeCupsOnScreen removeObject:self];
     [self removeFromParent];
     // TODO: particle effect
+}
+
+-(void)checkIfCupInGameplay {
+    int x = self.positionInPoints.x;
+    int y = self.positionInPoints.y;
+    if ((x < self.gameplayLayer.contentNode.contentSize.width) && (y < self.gameplayLayer.contentNode.contentSize.height)) {
+        self.didEnterGameplay = true;
+    }
+    else {
+        self.didEnterGameplay = false; 
+    }
+    
 }
 
 @end

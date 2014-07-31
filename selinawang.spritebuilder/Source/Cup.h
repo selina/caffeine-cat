@@ -16,8 +16,10 @@
 @property (nonatomic, assign) float y_position;
 @property (nonatomic, weak) Gameplay *gameplayLayer;
 @property (nonatomic, strong) NSString *cupfill;
+@property (nonatomic, assign) BOOL didEnterGameplay;
 
 
 -(void)cupTapped;
--(void)removeCup; 
+-(void)removeCup;
+-(void)checkIfCupInGameplay;
 @end
