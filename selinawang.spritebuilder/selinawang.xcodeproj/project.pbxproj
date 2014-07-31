@@ -12,6 +12,7 @@
 		6A7CCEB71980369400C2511C /* Ball.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A7CCEB61980369400C2511C /* Ball.m */; };
 		6A7F7DFD1982F66E00290813 /* Pause.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A7F7DFC1982F66E00290813 /* Pause.m */; };
 		6A7F7E0719894B7B00290813 /* GameOver.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A7F7E0619894B7B00290813 /* GameOver.m */; };
+		6A9104C3198A916B0051E41B /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A9104C2198A916B0051E41B /* Settings.m */; };
 		6AA33A5F19746A7500358E54 /* Cup.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AA33A5E19746A7500358E54 /* Cup.m */; };
 		6AB0AC5E197030CE009816A7 /* Gameplay.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AB0AC5D197030CE009816A7 /* Gameplay.m */; };
 		8392007A18EE8E3300B6C429 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8392007918EE8E3300B6C429 /* GLKit.framework */; };
@@ -73,6 +74,8 @@
 		6A7F7DFC1982F66E00290813 /* Pause.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Pause.m; path = Source/Pause.m; sourceTree = "<group>"; };
 		6A7F7E0519894B7B00290813 /* GameOver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameOver.h; path = Source/GameOver.h; sourceTree = "<group>"; };
 		6A7F7E0619894B7B00290813 /* GameOver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameOver.m; path = Source/GameOver.m; sourceTree = "<group>"; };
+		6A9104C1198A916B0051E41B /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Settings.h; path = Source/Settings.h; sourceTree = "<group>"; };
+		6A9104C2198A916B0051E41B /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Settings.m; path = Source/Settings.m; sourceTree = "<group>"; };
 		6AA33A5D19746A7500358E54 /* Cup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Cup.h; path = Source/Cup.h; sourceTree = "<group>"; };
 		6AA33A5E19746A7500358E54 /* Cup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Cup.m; path = Source/Cup.m; sourceTree = "<group>"; };
 		6AB0AC5C197030CE009816A7 /* Gameplay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Gameplay.h; path = Source/Gameplay.h; sourceTree = "<group>"; };
@@ -152,6 +155,8 @@
 				B7378993180767190076A88C /* MainScene.m */,
 				6A7F7DFB1982F66E00290813 /* Pause.h */,
 				6A7F7DFC1982F66E00290813 /* Pause.m */,
+				6A9104C1198A916B0051E41B /* Settings.h */,
+				6A9104C2198A916B0051E41B /* Settings.m */,
 				6AB0AC5C197030CE009816A7 /* Gameplay.h */,
 				6AB0AC5D197030CE009816A7 /* Gameplay.m */,
 				6A7F7E0519894B7B00290813 /* GameOver.h */,
@@ -378,6 +383,7 @@
 				B737893F1807617C0076A88C /* AppDelegate.m in Sources */,
 				6A7F7E0719894B7B00290813 /* GameOver.m in Sources */,
 				6AA33A5F19746A7500358E54 /* Cup.m in Sources */,
+				6A9104C3198A916B0051E41B /* Settings.m in Sources */,
 				6A7CCEB3198035D800C2511C /* Cat.m in Sources */,
 				6AB0AC5E197030CE009816A7 /* Gameplay.m in Sources */,
 				6A7CCEB71980369400C2511C /* Ball.m in Sources */,

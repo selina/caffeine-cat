@@ -21,11 +21,13 @@
     [[CCDirector sharedDirector] replaceScene:mainScene];
 }
 
-// TODO: add settings
+-(void)resume {
+    [[CCDirector sharedDirector] popScene];
+}
 
 -(void)settings {
     CCScene *mainScene = [CCBReader loadAsScene:@"Settings"];
-    [[CCDirector sharedDirector] replaceScene:mainScene];
+    [[CCDirector sharedDirector] pushScene:mainScene];
 }
 
 @end

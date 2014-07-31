@@ -52,7 +52,7 @@
 
 - (void)pause {
     CCScene *pauseScene = [CCBReader loadAsScene:@"PauseScene"];
-    [[CCDirector sharedDirector] replaceScene:pauseScene];
+    [[CCDirector sharedDirector] pushScene:pauseScene];
 }
 
 -(void)generateCup{
