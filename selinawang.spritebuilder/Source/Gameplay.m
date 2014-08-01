@@ -42,8 +42,11 @@
     
 //    [self schedule:@selector(updateCupPosition) interval:.01];
     [self schedule:@selector(updateTime) interval:1];
+    [self schedule:@selector(loseEnergyIncrementally) interval:1];
     //_physicsNode.debugDraw = true;
-    _physicsNode.collisionDelegate = self; 
+    _physicsNode.collisionDelegate = self;
+    totalEnergy = 100;
+    energy = 100;
 }
 
 - (void)update:(CCTime)delta {
@@ -173,13 +176,19 @@ cupUpdateVelocity(cpBody *body, cpVect gravity, cpFloat damping, cpFloat dt)
     }
 
 -(void)changeScorebarScale {
-    _scorebar.scaleX = energy/totalEnergy;
+    float energyRatio = energy/totalEnergy;
+    _scorebar.scaleY = energyRatio ;
+    if (energyRatio == 0) {
+        CCScene *mainScene = [CCBReader loadAsScene:@"GameOver"];
+        [[CCDirector sharedDirector] replaceScene:mainScene];
+    }
     
 }
 
-//-(void)loseEnergy {
-//    energy -= ;
-//}
+-(void)loseEnergyIncrementally {
+    energy -= 5;
+    [self changeScorebarScale];
+}
 
 @end
 

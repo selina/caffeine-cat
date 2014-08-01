@@ -19,7 +19,7 @@
 }
 
 -(void)speedUpCat {
-    //every thirty seconds, cat gets .1 faster
+    //every twenty seconds, cat gets .1 faster
     float speedIncrease = 1.1;
     [self.gameplayLayer animationManager].playbackSpeed *= speedIncrease;
     

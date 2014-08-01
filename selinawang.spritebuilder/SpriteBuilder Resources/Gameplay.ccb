@@ -2434,8 +2434,6 @@
 										<real>1</real>
 									</dict>
 								</array>
-								<key>selected</key>
-								<true/>
 							</dict>
 						</array>
 						<key>customClass</key>
@@ -2508,6 +2506,8 @@
 								</array>
 							</dict>
 						</array>
+						<key>selected</key>
+						<true/>
 					</dict>
 				</array>
 				<key>customClass</key>
@@ -2818,7 +2818,7 @@
 			<key>name</key>
 			<string>catAnimation</string>
 			<key>offset</key>
-			<real>0.43592453002929688</real>
+			<real>0.6484375</real>
 			<key>position</key>
 			<real>3</real>
 			<key>resolution</key>
