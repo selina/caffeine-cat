@@ -9,6 +9,7 @@
 
 #import "Gameplay.h"
 #import "Cup.h"
+#define CP_ALLOW_PRIVATE_ACCESS 1
 #import "CCPhysics+ObjectiveChipmunk.h"
 #import "Cat.h"
 #import "Ball.h"
@@ -39,7 +40,7 @@
     self.coffeeCupsOnScreen = [NSMutableArray arrayWithObjects: nil];
     _cat.gameplayLayer = self; 
     
-    [self schedule:@selector(updateCupPosition) interval:.01];
+//    [self schedule:@selector(updateCupPosition) interval:.01];
     [self schedule:@selector(updateTime) interval:1];
     //_physicsNode.debugDraw = true;
     _physicsNode.collisionDelegate = self; 
@@ -50,6 +51,21 @@
    
 }
 
+static void
+cupUpdateVelocity(cpBody *body, cpVect gravity, cpFloat damping, cpFloat dt)
+{
+    cpAssertSoft(body->m > 0.0f && body->i > 0.0f, "Body's mass and moment must be positive to simulate. (Mass: %f Moment: %f)", body->m, body->i);
+    
+//    body->v = cpvadd(cpvmult(body->v, damping), cpvmult(cpvmult(body->f, body->m_inv), dt));
+//	body->w = body->w*damping + body->t*body->i_inv*dt;
+    
+	// Reset forces.
+	body->f = cpvzero;
+	body->t = 0.0f;
+    
+	body->v.y = -60.f;
+}
+
 - (void)pause {
     CCScene *pauseScene = [CCBReader loadAsScene:@"PauseScene"];
     [[CCDirector sharedDirector] pushScene:pauseScene];
@@ -58,8 +74,9 @@
 -(void)generateCup{
     //generates random cup type at a random x position at the top
     
-    int randomint = arc4random() % 3;
+    int randomint = arc4random_uniform(3);
     Cup *cupinstance = (Cup*)[CCBReader load:[_coffeeCupTypeArray objectAtIndex:randomint]];
+    cupinstance.physicsBody.body.body->velocity_func = cupUpdateVelocity;
     cupinstance.cupfill = [_coffeeCupTypeArray objectAtIndex:randomint];
     
     if ([cupinstance.cupfill isEqualToString:@"yellow"]) {
@@ -71,11 +88,11 @@
     
     srandom(time(NULL));
     
-    float x = cupinstance.x_position;
-    float y = cupinstance.y_position;
+//    float x = cupinstance.x_position;
+//    float y = cupinstance.y_position;
     
-    x = CCRANDOM_0_1() * _contentNode.contentSize.width;
-    y = _contentNode.contentSize.height;
+    float x = CCRANDOM_0_1() * _contentNode.contentSize.width;
+    float y = _contentNode.contentSize.height;
     CGPoint cupLocation = ccp(x, y);
     
     cupinstance.positionType = CCPositionTypeNormalized;
@@ -138,9 +155,6 @@
         return NO;
     }
 }
-
-
-
      
 -(void)ballRemoved:(CCNode *)ball {
     [ball removeFromParent];
