@@ -38,7 +38,7 @@
     self.currentPhysicsNode = _physicsNode; 
     _coffeeCupTypeArray = [NSMutableArray arrayWithObjects: @"orange", @"yellow", @"red", nil];
     self.coffeeCupsOnScreen = [NSMutableArray arrayWithObjects: nil];
-    _cat.gameplayLayer = self; 
+    _cat.gameplayLayer = self;
     
 //    [self schedule:@selector(updateCupPosition) interval:.01];
     [self schedule:@selector(updateTime) interval:1];
@@ -51,8 +51,9 @@
 
 - (void)update:(CCTime)delta {
     [self generateNewCup:delta];
-   
 }
+
+# pragma mark generate cups and move them down
 
 static void
 cupUpdateVelocity(cpBody *body, cpVect gravity, cpFloat damping, cpFloat dt)
@@ -71,10 +72,6 @@ cupUpdateVelocity(cpBody *body, cpVect gravity, cpFloat damping, cpFloat dt)
 	body->v.y = -1 * randomint;
 }
 
-- (void)pause {
-    CCScene *pauseScene = [CCBReader loadAsScene:@"PauseScene"];
-    [[CCDirector sharedDirector] pushScene:pauseScene];
-}
 
 -(void)generateCup{
     //generates random cup type at a random x position at the top
@@ -95,10 +92,9 @@ cupUpdateVelocity(cpBody *body, cpVect gravity, cpFloat damping, cpFloat dt)
     
     srandom(time(NULL));
     
-//    float x = cupinstance.x_position;
-//    float y = cupinstance.y_position;
+    float contentNodeWidth = _contentNode.contentSize.width;
     
-    float x = CCRANDOM_0_1() * _contentNode.contentSize.width;
+    float x = clampf(CCRANDOM_0_1() * contentNodeWidth, contentNodeWidth*0.1, contentNodeWidth*0.9);
     float y = _contentNode.contentSize.height;
     CGPoint cupLocation = ccp(x, y);
     
@@ -112,14 +108,14 @@ cupUpdateVelocity(cpBody *body, cpVect gravity, cpFloat damping, cpFloat dt)
     [self.coffeeCupsOnScreen addObject:cupinstance];
 }
 
--(void)updateCupPosition {
-    //moves each cup in the array of cups on screen down
-    
-    for (Cup *cup in _coffeeCupsOnScreen) {
-        cup.positionInPoints = ccp(cup.positionInPoints.x, (cup.positionInPoints.y - 1));
-        [cup checkIfCupInGameplay]; 
-    }
-}
+//-(void)updateCupPosition {
+//    //moves each cup in the array of cups on screen down
+//    
+//    for (Cup *cup in _coffeeCupsOnScreen) {
+//        cup.positionInPoints = ccp(cup.positionInPoints.x, (cup.positionInPoints.y - 1));
+//        [cup checkIfCupInGameplay]; 
+//    }
+//}
 
 -(void)generateNewCup:(CCTime)delta {
     //after random amount of time less than three seconds: generate new cup
@@ -131,9 +127,12 @@ cupUpdateVelocity(cpBody *body, cpVect gravity, cpFloat damping, cpFloat dt)
     if (_timeSinceCup > randomfloat) {
         [self generateCup];
         _timeSinceCup = 0;
-        randomfloat = (CCRANDOM_0_1() * 3);
+        randomfloat = clampf((CCRANDOM_0_1() * 3),0.5,3);
+//        randomfloat=arc4random_uniform(30)/10;
     }
 }
+
+#pragma mark collisions
 
 //when the cat collides with the coffee ball, remove the ball
 -(BOOL) ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair cat:(CCNode *)cat ball:(Ball *)coffeeball {
@@ -165,12 +164,13 @@ cupUpdateVelocity(cpBody *body, cpVect gravity, cpFloat damping, cpFloat dt)
     }
 }
      
--(void)ballRemoved:(CCNode *)ball {
-    [ball removeFromParent];
-}
+//-(void)ballRemoved:(CCNode *)ball {
+//    [ball removeFromParent];
+//}
 
+#pragma mark scorebar, timer, pause
 
-//change the timer every second
+//change the timer label every second
 -(void)updateTime {
     timeSinceStart += 1;
     
@@ -181,22 +181,29 @@ cupUpdateVelocity(cpBody *body, cpVect gravity, cpFloat damping, cpFloat dt)
     _timeLabel.string = timeString;
     }
 
+//call this method when you want to change the scorebar
 -(void)changeScorebarScale {
     float energyRatio = energy/totalEnergy;
     _scorebar.scaleY = energyRatio ;
-    if (energyRatio == 0) {
-        CCScene *mainScene = [CCBReader loadAsScene:@"GameOver"];
-        [[CCDirector sharedDirector] replaceScene:mainScene];
-    }
+//    if (energyRatio == 0) {
+//        CCScene *mainScene = [CCBReader loadAsScene:@"GameOver"];
+//        [[CCDirector sharedDirector] replaceScene:mainScene];
+//    }
     
 }
-
 
 //lose some energy every second
 -(void)loseEnergyIncrementally {
     energy -= 0.5;
     [self changeScorebarScale];
 }
+
+- (void)pause {
+    CCScene *pauseScene = [CCBReader loadAsScene:@"PauseScene"];
+    [[CCDirector sharedDirector] pushScene:pauseScene];
+}
+
+
 
 @end
 
