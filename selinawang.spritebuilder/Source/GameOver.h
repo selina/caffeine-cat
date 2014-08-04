@@ -7,7 +7,14 @@
 //
 
 #import "CCNode.h"
+#import "Gameplay.h"
 
 @interface GameOver : CCNode
+
+@property (nonatomic, strong) NSString *timeString;
+
+
+-(void)setScoreLabels;
+
 
 @end

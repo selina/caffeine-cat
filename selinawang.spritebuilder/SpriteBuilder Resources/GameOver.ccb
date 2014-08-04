@@ -1216,7 +1216,7 @@
 				<key>displayName</key>
 				<string>lastscore</string>
 				<key>memberVarAssignmentName</key>
-				<string></string>
+				<string>_lastScore</string>
 				<key>memberVarAssignmentType</key>
 				<integer>1</integer>
 				<key>properties</key>
@@ -1630,7 +1630,7 @@
 				<key>displayName</key>
 				<string>bestscore</string>
 				<key>memberVarAssignmentName</key>
-				<string></string>
+				<string>_bestScore</string>
 				<key>memberVarAssignmentType</key>
 				<integer>1</integer>
 				<key>properties</key>
@@ -1824,6 +1824,8 @@
 						</array>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
@@ -2222,8 +2224,6 @@
 				</array>
 			</dict>
 		</array>
-		<key>selected</key>
-		<true/>
 	</dict>
 	<key>notes</key>
 	<array/>

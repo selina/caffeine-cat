@@ -13,6 +13,7 @@
 #import "CCPhysics+ObjectiveChipmunk.h"
 #import "Cat.h"
 #import "Ball.h"
+#import "GameOver.h"
 
 @implementation Gameplay {
     CCPhysicsNode *_physicsNode;
@@ -27,7 +28,6 @@
     float energy;
     float totalEnergy;
     Cat *_cat;
-    
 }
 
 
@@ -177,19 +177,17 @@ cupUpdateVelocity(cpBody *body, cpVect gravity, cpFloat damping, cpFloat dt)
     int seconds = timeSinceStart % 60;
     int minutes = (timeSinceStart / 60) % 60;
     
-    NSString *timeString = [NSString stringWithFormat:@"%d:%02d", minutes, seconds];
-    _timeLabel.string = timeString;
+    self.timeString = [NSString stringWithFormat:@"%d:%02d", minutes, seconds];
+    _timeLabel.string = self.timeString;
     }
 
 //call this method when you want to change the scorebar
 -(void)changeScorebarScale {
     float energyRatio = energy/totalEnergy;
     _scorebar.scaleY = energyRatio ;
-//    if (energyRatio == 0) {
-//        CCScene *mainScene = [CCBReader loadAsScene:@"GameOver"];
-//        [[CCDirector sharedDirector] replaceScene:mainScene];
-//    }
-    
+    if (energyRatio == 0) {
+        [self gameOver];
+    }
 }
 
 //lose some energy every second
@@ -202,6 +200,15 @@ cupUpdateVelocity(cpBody *body, cpVect gravity, cpFloat damping, cpFloat dt)
     CCScene *pauseScene = [CCBReader loadAsScene:@"PauseScene"];
     [[CCDirector sharedDirector] pushScene:pauseScene];
 }
+
+-(void)gameOver {
+    GameOver *gameover = (GameOver*)[CCBReader load:@"GameOver"];
+    gameover.timeString = self.timeString;
+    CCScene *gameoverScene = [CCScene node];
+    [gameoverScene addChild:gameover];
+    [[CCDirector sharedDirector] replaceScene:gameoverScene];
+}
+
 
 
 
