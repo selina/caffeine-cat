@@ -51,7 +51,7 @@
 				<key>displayName</key>
 				<string>backgroundcolor</string>
 				<key>memberVarAssignmentName</key>
-				<string></string>
+				<string>_contentNode</string>
 				<key>memberVarAssignmentType</key>
 				<integer>1</integer>
 				<key>properties</key>
@@ -85,7 +85,7 @@
 						<string>Size</string>
 						<key>value</key>
 						<array>
-							<real>1</real>
+							<real>0.89999997615814209</real>
 							<real>1</real>
 							<integer>2</integer>
 							<integer>2</integer>
@@ -137,6 +137,8 @@
 						<real>1</real>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
@@ -2506,8 +2508,6 @@
 								</array>
 							</dict>
 						</array>
-						<key>selected</key>
-						<true/>
 					</dict>
 				</array>
 				<key>customClass</key>
@@ -2686,7 +2686,7 @@
 		<key>displayName</key>
 		<string>CCNode</string>
 		<key>memberVarAssignmentName</key>
-		<string>_contentNode</string>
+		<string></string>
 		<key>memberVarAssignmentType</key>
 		<integer>1</integer>
 		<key>properties</key>

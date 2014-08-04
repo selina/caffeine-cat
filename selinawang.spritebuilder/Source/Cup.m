@@ -33,23 +33,23 @@
     }
     else if ([self.cupfill isEqualToString:@"orange"]) {
         self.isEmpty = true;
-        [self loadLiquid];
+        [self loadBall];
         [[self animationManager] runAnimationsForSequenceNamed:@"yellow"];
     }
     else if ([self.cupfill isEqualToString:@"red"]) {
         self.cupfill = @"orange";
-        [self loadLiquid];
+        [self loadBall];
         [[self animationManager] runAnimationsForSequenceNamed:@"orange"];
         
     }
 }
 
 //loads a ball of coffee at the position of the cup
--(void)loadLiquid {
-    CCNode *liquid = [CCBReader load:@"liquid"];
-    liquid.position = self.positionInPoints;
-    [self.gameplayLayer.currentPhysicsNode addChild:liquid];
-    
+-(void)loadBall {
+    CCNode *ball = [CCBReader load:@"liquid"];
+    ball.position = self.positionInPoints;
+    [self.gameplayLayer.currentPhysicsNode addChild:ball];
+
 }
 
 

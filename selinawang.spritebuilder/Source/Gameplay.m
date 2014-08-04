@@ -42,7 +42,7 @@
     
 //    [self schedule:@selector(updateCupPosition) interval:.01];
     [self schedule:@selector(updateTime) interval:1];
-    [self schedule:@selector(loseEnergyIncrementally) interval:1];
+    [self schedule:@selector(loseEnergyIncrementally) interval:.1];
     //_physicsNode.debugDraw = true;
     _physicsNode.collisionDelegate = self;
     totalEnergy = 100;
@@ -66,7 +66,9 @@ cupUpdateVelocity(cpBody *body, cpVect gravity, cpFloat damping, cpFloat dt)
 	body->f = cpvzero;
 	body->t = 0.0f;
     
-	body->v.y = -60.f;
+    //change this number for speed the blocks fall at
+    int randomint = arc4random_uniform(40) + 80;
+	body->v.y = -1 * randomint;
 }
 
 - (void)pause {
@@ -81,6 +83,8 @@ cupUpdateVelocity(cpBody *body, cpVect gravity, cpFloat damping, cpFloat dt)
     Cup *cupinstance = (Cup*)[CCBReader load:[_coffeeCupTypeArray objectAtIndex:randomint]];
     cupinstance.physicsBody.body.body->velocity_func = cupUpdateVelocity;
     cupinstance.cupfill = [_coffeeCupTypeArray objectAtIndex:randomint];
+    
+    
     
     if ([cupinstance.cupfill isEqualToString:@"yellow"]) {
         cupinstance.isEmpty = true;
@@ -127,7 +131,7 @@ cupUpdateVelocity(cpBody *body, cpVect gravity, cpFloat damping, cpFloat dt)
     if (_timeSinceCup > randomfloat) {
         [self generateCup];
         _timeSinceCup = 0;
-        randomfloat = (CCRANDOM_0_1() * 3) + 1;
+        randomfloat = (CCRANDOM_0_1() * 3);
     }
 }
 
@@ -135,7 +139,9 @@ cupUpdateVelocity(cpBody *body, cpVect gravity, cpFloat damping, cpFloat dt)
 -(BOOL) ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair cat:(CCNode *)cat ball:(Ball *)coffeeball {
     coffeeball.visible=NO;
     coffeeball.physicsBody.collisionMask=@[];
+    
     energy += coffeeball.coffeeEnergy;
+    [self changeScorebarScale];
 //    [[_physicsNode space] addPostStepBlock:^{
 //        [self ballRemoved:balloon];
 //    } key:cat];
@@ -185,8 +191,10 @@ cupUpdateVelocity(cpBody *body, cpVect gravity, cpFloat damping, cpFloat dt)
     
 }
 
+
+//lose some energy every second
 -(void)loseEnergyIncrementally {
-    energy -= 5;
+    energy -= 0.5;
     [self changeScorebarScale];
 }
 
