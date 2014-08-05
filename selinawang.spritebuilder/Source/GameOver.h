@@ -12,7 +12,8 @@
 @interface GameOver : CCNode
 
 @property (nonatomic, strong) NSString *timeString;
-
+@property (nonatomic, weak) Gameplay *gameplayLayer; 
+ 
 
 -(void)setScoreLabels;
 

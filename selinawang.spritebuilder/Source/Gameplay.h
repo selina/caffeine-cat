@@ -16,7 +16,7 @@
 @property (nonatomic, strong) CCNode *contentNode;
 @property (nonatomic, assign) float timeSinceCup;
 @property (nonatomic, strong) NSString *timeString;
-
+@property (nonatomic, assign) int totalTime; 
 
 
 

@@ -174,12 +174,19 @@ cupUpdateVelocity(cpBody *body, cpVect gravity, cpFloat damping, cpFloat dt)
 -(void)updateTime {
     timeSinceStart += 1;
     
-    int seconds = timeSinceStart % 60;
-    int minutes = (timeSinceStart / 60) % 60;
+    [self convertSecondsToString:timeSinceStart];
+
+    _timeLabel.string = self.timeString;
+    
+    
+    }
+
+-(void)convertSecondsToString:(int)secondsint {
+    int seconds = secondsint % 60;
+    int minutes = (secondsint/ 60) % 60;
     
     self.timeString = [NSString stringWithFormat:@"%d:%02d", minutes, seconds];
-    _timeLabel.string = self.timeString;
-    }
+}
 
 //call this method when you want to change the scorebar
 -(void)changeScorebarScale {
@@ -192,7 +199,7 @@ cupUpdateVelocity(cpBody *body, cpVect gravity, cpFloat damping, cpFloat dt)
 
 //lose some energy every second
 -(void)loseEnergyIncrementally {
-    energy -= 0.5;
+    energy -= .5;
     [self changeScorebarScale];
 }
 
@@ -202,15 +209,14 @@ cupUpdateVelocity(cpBody *body, cpVect gravity, cpFloat damping, cpFloat dt)
 }
 
 -(void)gameOver {
+    self.totalTime = timeSinceStart;
     GameOver *gameover = (GameOver*)[CCBReader load:@"GameOver"];
     gameover.timeString = self.timeString;
+    gameover.gameplayLayer = self;
     CCScene *gameoverScene = [CCScene node];
     [gameoverScene addChild:gameover];
     [[CCDirector sharedDirector] replaceScene:gameoverScene];
 }
-
-
-
 
 @end
 
