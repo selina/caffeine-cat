@@ -28,6 +28,7 @@
     float energy;
     float totalEnergy;
     Cat *_cat;
+    CCSprite *_cloud;
 }
 
 
@@ -43,10 +44,11 @@
 //    [self schedule:@selector(updateCupPosition) interval:.01];
     [self schedule:@selector(updateTime) interval:1];
     [self schedule:@selector(loseEnergyIncrementally) interval:.1];
-    //_physicsNode.debugDraw = true;
+    _physicsNode.debugDraw = true;
     _physicsNode.collisionDelegate = self;
     totalEnergy = 100;
     energy = 100;
+    
 }
 
 - (void)update:(CCTime)delta {
@@ -60,8 +62,8 @@ cupUpdateVelocity(cpBody *body, cpVect gravity, cpFloat damping, cpFloat dt)
 {
     cpAssertSoft(body->m > 0.0f && body->i > 0.0f, "Body's mass and moment must be positive to simulate. (Mass: %f Moment: %f)", body->m, body->i);
     
-//    body->v = cpvadd(cpvmult(body->v, damping), cpvmult(cpvmult(body->f, body->m_inv), dt));
-//	body->w = body->w*damping + body->t*body->i_inv*dt;
+    body->v = cpvadd(cpvmult(body->v, damping), cpvmult(cpvmult(body->f, body->m_inv), dt));
+	body->w = body->w*damping + body->t*body->i_inv*dt;
     
 	// Reset forces.
 	body->f = cpvzero;
@@ -95,7 +97,8 @@ cupUpdateVelocity(cpBody *body, cpVect gravity, cpFloat damping, cpFloat dt)
     float contentNodeWidth = _contentNode.contentSize.width;
     
     float x = clampf(CCRANDOM_0_1() * contentNodeWidth, contentNodeWidth*0.1, contentNodeWidth*0.9);
-    float y = _contentNode.contentSize.height;
+//    float y = _contentNode.contentSize.height;
+    float y = _cloud.position.y;
     CGPoint cupLocation = ccp(x, y);
     
     cupinstance.positionType = CCPositionTypeNormalized;
@@ -103,14 +106,22 @@ cupUpdateVelocity(cpBody *body, cpVect gravity, cpFloat damping, cpFloat dt)
     
     cupinstance.gameplayLayer = self; 
     [_physicsNode addChild:cupinstance];
+    cupinstance.physicsBody.collisionMask = @[];
     //[_contentNode addChild:cupinstance];
     
     [self.coffeeCupsOnScreen addObject:cupinstance];
+    
+    [self performSelector:@selector(changeCollisionMask:) withObject:(cupinstance) afterDelay:(2)];
+    
+}
+
+-(void)changeCollisionMask:(CCNode*)cup {
+    cup.physicsBody.collisionMask = nil;
 }
 
 //-(void)updateCupPosition {
 //    //moves each cup in the array of cups on screen down
-//    
+//
 //    for (Cup *cup in _coffeeCupsOnScreen) {
 //        cup.positionInPoints = ccp(cup.positionInPoints.x, (cup.positionInPoints.y - 1));
 //        [cup checkIfCupInGameplay]; 
@@ -151,10 +162,6 @@ cupUpdateVelocity(cpBody *body, cpVect gravity, cpFloat damping, cpFloat dt)
     return NO;
 }
 
-//-(BOOL) ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair ball:(CCNode *)nodeA cup:(CCNode *)nodeB {
-//    return NO;
-//}
-
 -(BOOL) ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair buffer:(CCNode *)nodeA cup:(Cup *)nodeB {
     if (nodeB.didEnterGameplay == true) {
         return YES;
@@ -162,6 +169,10 @@ cupUpdateVelocity(cpBody *body, cpVect gravity, cpFloat damping, cpFloat dt)
     else {
         return NO;
     }
+}
+
+-(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair cloud:(CCNode *)nodeA ball:(CCNode *)nodeB {
+    return NO;
 }
      
 //-(void)ballRemoved:(CCNode *)ball {
