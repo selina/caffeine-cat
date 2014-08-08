@@ -44,7 +44,7 @@
 //    [self schedule:@selector(updateCupPosition) interval:.01];
     [self schedule:@selector(updateTime) interval:1];
     [self schedule:@selector(loseEnergyIncrementally) interval:.1];
-    _physicsNode.debugDraw = true;
+    //_physicsNode.debugDraw = true;
     _physicsNode.collisionDelegate = self;
     totalEnergy = 100;
     energy = 100;
