@@ -12,7 +12,7 @@
 
 -(void)didLoadFromCCB {
     self.physicsBody.collisionType = @"ball";
-    self.coffeeEnergy = 10; 
+    self.coffeeEnergy = 5;
 }
 
 @end

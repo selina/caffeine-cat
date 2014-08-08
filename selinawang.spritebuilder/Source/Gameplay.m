@@ -149,9 +149,10 @@ cupUpdateVelocity(cpBody *body, cpVect gravity, cpFloat damping, cpFloat dt)
 -(BOOL) ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair cat:(CCNode *)cat ball:(Ball *)coffeeball {
     coffeeball.visible=NO;
     coffeeball.physicsBody.collisionMask=@[];
-    
-    energy += coffeeball.coffeeEnergy;
+    if (energy < 100) {
+        energy += coffeeball.coffeeEnergy;
     [self changeScorebarScale];
+    }
 //    [[_physicsNode space] addPostStepBlock:^{
 //        [self ballRemoved:balloon];
 //    } key:cat];
@@ -174,6 +175,8 @@ cupUpdateVelocity(cpBody *body, cpVect gravity, cpFloat damping, cpFloat dt)
 -(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair cloud:(CCNode *)nodeA ball:(CCNode *)nodeB {
     return NO;
 }
+
+//when blocks reach a certain point: game over
      
 //-(void)ballRemoved:(CCNode *)ball {
 //    [ball removeFromParent];
