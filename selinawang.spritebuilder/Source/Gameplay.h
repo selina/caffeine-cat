@@ -19,9 +19,4 @@
 @property (nonatomic, assign) int totalTime; 
 
 
-
-
-
-
-
 @end
