@@ -29,6 +29,7 @@
     float totalEnergy;
     Cat *_cat;
     CCSprite *_cloud;
+    CCNode *border;
 }
 
 
@@ -44,7 +45,7 @@
 //    [self schedule:@selector(updateCupPosition) interval:.01];
     [self schedule:@selector(updateTime) interval:1];
     [self schedule:@selector(loseEnergyIncrementally) interval:.1];
-    //_physicsNode.debugDraw = true;
+    _physicsNode.debugDraw = true;
     _physicsNode.collisionDelegate = self;
     totalEnergy = 100;
     energy = 100;
@@ -84,7 +85,6 @@ cupUpdateVelocity(cpBody *body, cpVect gravity, cpFloat damping, cpFloat dt)
     cupinstance.cupfill = [_coffeeCupTypeArray objectAtIndex:randomint];
     
     
-    
     if ([cupinstance.cupfill isEqualToString:@"yellow"]) {
         cupinstance.isEmpty = true;
     }
@@ -97,7 +97,6 @@ cupUpdateVelocity(cpBody *body, cpVect gravity, cpFloat damping, cpFloat dt)
     float contentNodeWidth = _contentNode.contentSize.width;
     
     float x = clampf(CCRANDOM_0_1() * contentNodeWidth, contentNodeWidth*0.1, contentNodeWidth*0.9);
-//    float y = _contentNode.contentSize.height;
     float y = _cloud.position.y;
     CGPoint cupLocation = ccp(x, y);
     
@@ -111,12 +110,12 @@ cupUpdateVelocity(cpBody *body, cpVect gravity, cpFloat damping, cpFloat dt)
     
     [self.coffeeCupsOnScreen addObject:cupinstance];
     
-    [self performSelector:@selector(changeCollisionMask:) withObject:(cupinstance) afterDelay:(2)];
+    [self performSelector:@selector(changeCollisionMask:) withObject:(cupinstance) afterDelay:(.5)];
     
 }
 
 -(void)changeCollisionMask:(CCNode*)cup {
-    cup.physicsBody.collisionMask = nil;
+    cup.physicsBody.collisionMask = @[@"ball"];
 }
 
 //-(void)updateCupPosition {
@@ -159,9 +158,17 @@ cupUpdateVelocity(cpBody *body, cpVect gravity, cpFloat damping, cpFloat dt)
     return NO;
 }
 
+//cat does not collide w/ cup
 -(BOOL) ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair cat:(CCNode *)nodeA cup:(CCNode *)nodeB {
     return NO;
 }
+
+//ball does not collide w/ border
+-(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair border:(CCNode *)nodeA ball:(CCNode *)nodeB {
+    return NO;
+}
+
+//cup collides with buffer if cup in gameplay
 
 -(BOOL) ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair buffer:(CCNode *)nodeA cup:(Cup *)nodeB {
     if (nodeB.didEnterGameplay == true) {
@@ -172,12 +179,15 @@ cupUpdateVelocity(cpBody *body, cpVect gravity, cpFloat damping, cpFloat dt)
     }
 }
 
+//cloud does not collide with ball
 -(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair cloud:(CCNode *)nodeA ball:(CCNode *)nodeB {
     return NO;
 }
 
 //when blocks reach a certain point: game over
-     
+
+-(void) ccPhysicsCollisionPostSolve:(CCPhysicsCollisionPair *)pair border:(CCNode *)nodeA cup:(CCNode *)nodeB {[self gameOver];}
+
 //-(void)ballRemoved:(CCNode *)ball {
 //    [ball removeFromParent];
 //}
@@ -187,12 +197,9 @@ cupUpdateVelocity(cpBody *body, cpVect gravity, cpFloat damping, cpFloat dt)
 //change the timer label every second
 -(void)updateTime {
     timeSinceStart += 1;
-    
     [self convertSecondsToString:timeSinceStart];
 
     _timeLabel.string = self.timeString;
-    
-    
     }
 
 -(void)convertSecondsToString:(int)secondsint {

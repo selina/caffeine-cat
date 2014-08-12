@@ -22,6 +22,7 @@
 	NSAssert(physics, @"Must be added to a physics node.");
 	
 	_grab = [[ChipmunkMultiGrab alloc] initForSpace:physics.space withSmoothing:powf(0.1f, 15.0f) withGrabForce:1e5];
+    _grab.grabRadius = 20.f;
 	
 	[super onEnter];
 }

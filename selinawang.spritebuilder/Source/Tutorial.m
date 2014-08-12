@@ -9,6 +9,14 @@
 #import "Tutorial.h"
 #import "Gameplay.h"
 
+@implementation Gameplay (Tutorial)
+
+-(void)generateCup {
+    NSLog(@"GEN");
+}
+
+@end
+
 @implementation Tutorial {
     CCLabelTTF *catgettingtired;
     CCLabelTTF *taptoremove;
@@ -17,7 +25,7 @@
     CCLabelTTF *fullcupstwice;
     CCLabelTTF *nobuildup;
     CCLabelTTF *howlongawake;
-
+    Gameplay *_gameplay;
 }
 
 -(void)onEnter {
@@ -26,7 +34,7 @@
     for (CCLabelTTF *instructions in instructionArray) {
         instructions.visible = NO;
     }
-    }
+}
 
 -(void)next {
     
@@ -36,7 +44,5 @@
     CCScene *mainScene = [CCBReader loadAsScene:@"Gameplay"];
     [[CCDirector sharedDirector] replaceScene:mainScene];
 }
-
-
 
 @end

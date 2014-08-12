@@ -148,7 +148,9 @@
 			<key>collisionCategories</key>
 			<array/>
 			<key>collisionMask</key>
-			<array/>
+			<array>
+				<string>ball</string>
+			</array>
 			<key>collisionType</key>
 			<string></string>
 			<key>cornerRadius</key>
@@ -233,6 +235,8 @@
 				</array>
 			</dict>
 		</array>
+		<key>selected</key>
+		<true/>
 	</dict>
 	<key>notes</key>
 	<array/>
