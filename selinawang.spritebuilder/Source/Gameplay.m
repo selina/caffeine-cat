@@ -83,6 +83,10 @@
 //}
 //
 
+-(void)changeVelocity {
+    
+}
+
 -(void)generateCup{
     //generates random cup type at a random x position at the top
     
@@ -112,13 +116,16 @@
     
     cupinstance.gameplayLayer = self; 
     [_physicsNode addChild:cupinstance];
-    //cupinstance.physicsBody.collisionMask = @[];
-    //[_contentNode addChild:cupinstance];
     
     [self.coffeeCupsOnScreen addObject:cupinstance];
-    cupinstance.physicsBody.velocity = ccp(0,-50);
+    
+    int randomvelocity = arc4random_uniform(40) + 50;
+    int negativevelocity = -1 * randomvelocity;
 
-    [self performSelector:@selector(changeCollisionMask:) withObject:(cupinstance) afterDelay:(0.75)];
+    
+    cupinstance.physicsBody.velocity = ccp(0,negativevelocity);
+
+    [self performSelector:@selector(changeCollisionMask:) withObject:(cupinstance) afterDelay:(0.50)];
     
     
 }
@@ -172,20 +179,12 @@
     return NO;
 }
 
-//ball does not collide w/ border
--(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair border:(CCNode *)nodeA ball:(CCNode *)nodeB {
-    return NO;
-}
+
 
 //cup collides with buffer if cup in gameplay
 
 -(BOOL) ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair buffer:(CCNode *)nodeA cup:(Cup *)nodeB {
-    if (nodeB.didEnterGameplay == true) {
-        return YES;
-    }
-    else {
-        return NO;
-    }
+    return YES;
 }
 
 //cloud does not collide with ball
@@ -198,6 +197,11 @@
 }
 
 -(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair ball:(CCNode *)nodeA cup:(CCNode *)nodeB {
+    return NO;
+}
+
+
+-(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair cupFallen:(CCNode *)nodeA cup:(CCNode *)nodeB {
     return NO;
 }
 

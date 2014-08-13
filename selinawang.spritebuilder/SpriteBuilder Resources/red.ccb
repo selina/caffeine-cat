@@ -461,9 +461,9 @@
 			<key>name</key>
 			<string>yellow</string>
 			<key>offset</key>
-			<real>0.31510424613952637</real>
+			<real>0.0</real>
 			<key>position</key>
-			<real>2.6666667461395264</real>
+			<real>0.0</real>
 			<key>resolution</key>
 			<real>30</real>
 			<key>scale</key>

@@ -59,16 +59,16 @@
     // TODO: particle effect
 }
 
--(void)checkIfCupInGameplay {
-    int x = self.positionInPoints.x;
-    int y = self.positionInPoints.y;
-    if ((x < self.gameplayLayer.contentNode.contentSizeInPoints.width) && (y < self.gameplayLayer.contentNode.contentSizeInPoints.height)) {
-        self.didEnterGameplay = true;
-    }
-    else {
-        self.didEnterGameplay = false; 
-    }
-    
-}
+//-(void)checkIfCupInGameplay {
+//    int x = self.positionInPoints.x;
+//    int y = self.positionInPoints.y;
+//    if ((x < self.gameplayLayer.contentNode.contentSizeInPoints.width) && (y < self.gameplayLayer.contentNode.contentSizeInPoints.height)) {
+//        self.didEnterGameplay = true;
+//    }
+//    else {
+//        self.didEnterGameplay = false; 
+//    }
+//    
+//}
 
 @end

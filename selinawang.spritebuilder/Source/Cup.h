@@ -19,5 +19,5 @@
 
 -(void)cupTapped;
 -(void)removeCup;
--(void)checkIfCupInGameplay;
+//-(void)checkIfCupInGameplay;
 @end
