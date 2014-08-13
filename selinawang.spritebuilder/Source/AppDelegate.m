@@ -59,7 +59,7 @@
 
 - (CCScene*) startScene
 {
-    return [CCBReader loadAsScene:@"Tutorial"];
+    return [CCBReader loadAsScene:@"Gameplay"];
 }
 
 @end

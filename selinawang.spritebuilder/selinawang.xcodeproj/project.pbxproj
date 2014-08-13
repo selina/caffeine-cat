@@ -12,7 +12,7 @@
 		6A7CCEB71980369400C2511C /* Ball.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A7CCEB61980369400C2511C /* Ball.m */; };
 		6A7F7DFD1982F66E00290813 /* Pause.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A7F7DFC1982F66E00290813 /* Pause.m */; };
 		6A7F7E0719894B7B00290813 /* GameOver.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A7F7E0619894B7B00290813 /* GameOver.m */; };
-		6A85769319966E2B001A8DF3 /* Tutorial.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A85769219966E2B001A8DF3 /* Tutorial.m */; };
+		6A85769319966E2B001A8DF3 /* Gameplay+Tutorial.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A85769219966E2B001A8DF3 /* Gameplay+Tutorial.m */; };
 		6A9104C3198A916B0051E41B /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A9104C2198A916B0051E41B /* Settings.m */; };
 		6AA33A5F19746A7500358E54 /* Cup.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AA33A5E19746A7500358E54 /* Cup.m */; };
 		6AB0AC5E197030CE009816A7 /* Gameplay.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AB0AC5D197030CE009816A7 /* Gameplay.m */; };
@@ -75,8 +75,8 @@
 		6A7F7DFC1982F66E00290813 /* Pause.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Pause.m; path = Source/Pause.m; sourceTree = "<group>"; };
 		6A7F7E0519894B7B00290813 /* GameOver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameOver.h; path = Source/GameOver.h; sourceTree = "<group>"; };
 		6A7F7E0619894B7B00290813 /* GameOver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameOver.m; path = Source/GameOver.m; sourceTree = "<group>"; };
-		6A85769119966E2B001A8DF3 /* Tutorial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Tutorial.h; path = Source/Tutorial.h; sourceTree = "<group>"; };
-		6A85769219966E2B001A8DF3 /* Tutorial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Tutorial.m; path = Source/Tutorial.m; sourceTree = "<group>"; };
+		6A85769119966E2B001A8DF3 /* Gameplay+Tutorial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Gameplay+Tutorial.h"; path = "Source/Gameplay+Tutorial.h"; sourceTree = "<group>"; };
+		6A85769219966E2B001A8DF3 /* Gameplay+Tutorial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Gameplay+Tutorial.m"; path = "Source/Gameplay+Tutorial.m"; sourceTree = "<group>"; };
 		6A9104C1198A916B0051E41B /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Settings.h; path = Source/Settings.h; sourceTree = "<group>"; };
 		6A9104C2198A916B0051E41B /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Settings.m; path = Source/Settings.m; sourceTree = "<group>"; };
 		6AA33A5D19746A7500358E54 /* Cup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Cup.h; path = Source/Cup.h; sourceTree = "<group>"; };
@@ -170,8 +170,8 @@
 				6A7CCEB2198035D800C2511C /* Cat.m */,
 				6A7CCEB51980369400C2511C /* Ball.h */,
 				6A7CCEB61980369400C2511C /* Ball.m */,
-				6A85769119966E2B001A8DF3 /* Tutorial.h */,
-				6A85769219966E2B001A8DF3 /* Tutorial.m */,
+				6A85769119966E2B001A8DF3 /* Gameplay+Tutorial.h */,
+				6A85769219966E2B001A8DF3 /* Gameplay+Tutorial.m */,
 				6A321906197EA8C900648C5C /* CCPhysicsTouchNode.h */,
 				6A321907197EA8C900648C5C /* CCPhysicsTouchNode.m */,
 			);
@@ -390,7 +390,7 @@
 				6AA33A5F19746A7500358E54 /* Cup.m in Sources */,
 				6A9104C3198A916B0051E41B /* Settings.m in Sources */,
 				6A7CCEB3198035D800C2511C /* Cat.m in Sources */,
-				6A85769319966E2B001A8DF3 /* Tutorial.m in Sources */,
+				6A85769319966E2B001A8DF3 /* Gameplay+Tutorial.m in Sources */,
 				6AB0AC5E197030CE009816A7 /* Gameplay.m in Sources */,
 				6A7CCEB71980369400C2511C /* Ball.m in Sources */,
 				B7378994180767190076A88C /* MainScene.m in Sources */,

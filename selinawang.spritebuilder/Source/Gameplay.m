@@ -30,6 +30,8 @@
     Cat *_cat;
     CCSprite *_cloud;
     CCNode *border;
+    float energyLossIncrement;
+    float energyLostPerSecond;
 }
 
 
@@ -41,15 +43,20 @@
     _coffeeCupTypeArray = [NSMutableArray arrayWithObjects: @"orange", @"yellow", @"red", nil];
     self.coffeeCupsOnScreen = [NSMutableArray arrayWithObjects: nil];
     _cat.gameplayLayer = self;
+    timeSinceStart = 0;
+    _cloud.physicsBody.collisionType=@"cloud";
+    border.physicsBody.sensor = true;
     
-//    [self schedule:@selector(updateCupPosition) interval:.01];
+//    [self schedule:@selector(checkCupLocationInGameplay) interval:.01];
     [self schedule:@selector(updateTime) interval:1];
     [self schedule:@selector(loseEnergyIncrementally) interval:.1];
-    _physicsNode.debugDraw = true;
+    [self schedule:@selector(loseEnergyFaster) interval:10]; 
+    //_physicsNode.debugDraw = true;
     _physicsNode.collisionDelegate = self;
     totalEnergy = 100;
     energy = 100;
-    
+    energyLostPerSecond = 5;
+    energyLossIncrement = .5;
 }
 
 - (void)update:(CCTime)delta {
@@ -58,30 +65,30 @@
 
 # pragma mark generate cups and move them down
 
-static void
-cupUpdateVelocity(cpBody *body, cpVect gravity, cpFloat damping, cpFloat dt)
-{
-    cpAssertSoft(body->m > 0.0f && body->i > 0.0f, "Body's mass and moment must be positive to simulate. (Mass: %f Moment: %f)", body->m, body->i);
-    
-    body->v = cpvadd(cpvmult(body->v, damping), cpvmult(cpvmult(body->f, body->m_inv), dt));
-	body->w = body->w*damping + body->t*body->i_inv*dt;
-    
-	// Reset forces.
-	body->f = cpvzero;
-	body->t = 0.0f;
-    
-    //change this number for speed the blocks fall at
-    int randomint = arc4random_uniform(40) + 80;
-	body->v.y = -1 * randomint;
-}
-
+//static void
+//cupUpdateVelocity(cpBody *body, cpVect gravity, cpFloat damping, cpFloat dt)
+//{
+//    cpAssertSoft(body->m > 0.0f && body->i > 0.0f, "Body's mass and moment must be positive to simulate. (Mass: %f Moment: %f)", body->m, body->i);
+//    
+//    body->v = cpvadd(cpvmult(body->v, damping), cpvmult(cpvmult(body->f, body->m_inv), dt));
+//	body->w = body->w*damping + body->t*body->i_inv*dt;
+//    
+//	// Reset forces.
+//	body->f = cpvzero;
+//	body->t = 0.0f;
+//    
+//    //change this number for speed the blocks fall at
+//    int randomint = arc4random_uniform(40) + 80;
+//	body->v.y = -1 * randomint;
+//}
+//
 
 -(void)generateCup{
     //generates random cup type at a random x position at the top
     
     int randomint = arc4random_uniform(3);
     Cup *cupinstance = (Cup*)[CCBReader load:[_coffeeCupTypeArray objectAtIndex:randomint]];
-    cupinstance.physicsBody.body.body->velocity_func = cupUpdateVelocity;
+    //cupinstance.physicsBody.body.body->velocity_func = cupUpdateVelocity;
     cupinstance.cupfill = [_coffeeCupTypeArray objectAtIndex:randomint];
     
     
@@ -105,25 +112,27 @@ cupUpdateVelocity(cpBody *body, cpVect gravity, cpFloat damping, cpFloat dt)
     
     cupinstance.gameplayLayer = self; 
     [_physicsNode addChild:cupinstance];
-    cupinstance.physicsBody.collisionMask = @[];
+    //cupinstance.physicsBody.collisionMask = @[];
     //[_contentNode addChild:cupinstance];
     
     [self.coffeeCupsOnScreen addObject:cupinstance];
+    cupinstance.physicsBody.velocity = ccp(0,-50);
+
+    [self performSelector:@selector(changeCollisionMask:) withObject:(cupinstance) afterDelay:(0.75)];
     
-    [self performSelector:@selector(changeCollisionMask:) withObject:(cupinstance) afterDelay:(.5)];
     
 }
 
 -(void)changeCollisionMask:(CCNode*)cup {
-    cup.physicsBody.collisionMask = @[@"ball"];
+    cup.physicsBody.collisionType = @"cupFallen";
+//    cup.physicsBody.velocity = ccp(0,-100);
 }
 
-//-(void)updateCupPosition {
+//-(void)checkCupLocationInGameplay{
 //    //moves each cup in the array of cups on screen down
 //
 //    for (Cup *cup in _coffeeCupsOnScreen) {
-//        cup.positionInPoints = ccp(cup.positionInPoints.x, (cup.positionInPoints.y - 1));
-//        [cup checkIfCupInGameplay]; 
+//                [cup checkIfCupInGameplay];
 //    }
 //}
 
@@ -184,13 +193,19 @@ cupUpdateVelocity(cpBody *body, cpVect gravity, cpFloat damping, cpFloat dt)
     return NO;
 }
 
-//when blocks reach a certain point: game over
+-(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair cloud:(CCNode *)nodeA cup:(CCNode *)nodeB {
+    return NO;
+}
 
--(void) ccPhysicsCollisionPostSolve:(CCPhysicsCollisionPair *)pair border:(CCNode *)nodeA cup:(CCNode *)nodeB {[self gameOver];}
+-(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair ball:(CCNode *)nodeA cup:(CCNode *)nodeB {
+    return NO;
+}
 
-//-(void)ballRemoved:(CCNode *)ball {
-//    [ball removeFromParent];
-//}
+
+-(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair cloud:(CCNode *)nodeA cupFallen:(CCNode *)nodeB {
+    return YES;
+}
+
 
 #pragma mark scorebar, timer, pause
 
@@ -213,15 +228,20 @@ cupUpdateVelocity(cpBody *body, cpVect gravity, cpFloat damping, cpFloat dt)
 -(void)changeScorebarScale {
     float energyRatio = energy/totalEnergy;
     _scorebar.scaleY = energyRatio ;
-    if (energyRatio == 0) {
+    if (energyRatio <= 0) {
         [self gameOver];
     }
 }
 
 //lose some energy every second
 -(void)loseEnergyIncrementally {
-    energy -= .5;
+    energy -= energyLossIncrement;
     [self changeScorebarScale];
+}
+
+-(void)loseEnergyFaster {
+    energyLostPerSecond = energyLostPerSecond * 1.2;
+    energyLossIncrement = energyLostPerSecond / 10;
 }
 
 - (void)pause {

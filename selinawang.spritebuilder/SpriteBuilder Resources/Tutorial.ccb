@@ -611,7 +611,7 @@
 						<string>Text</string>
 						<key>value</key>
 						<array>
-							<string>Tap to release a caffeine ball</string>
+							<string>Tap to release one caffeine ball</string>
 							<false/>
 						</array>
 					</dict>
@@ -1233,8 +1233,8 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>167.57156372070312</real>
-							<real>249.17105102539062</real>
+							<real>152.58901977539062</real>
+							<real>250.74815368652344</real>
 							<integer>0</integer>
 							<integer>0</integer>
 							<integer>0</integer>

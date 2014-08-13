@@ -6,9 +6,17 @@
 //  Copyright (c) 2014 Apportable. All rights reserved.
 //
 
-#import "CCNode.h"
 #import "Gameplay.h"
 
-@interface Tutorial : CCNode
+@interface Gameplay (Tutorial)
+
+typedef enum {
+    introduction,
+    empty,
+    half,
+    full,
+    preventbuildup,
+    howlong
+}TutorialSteps;
 
 @end
