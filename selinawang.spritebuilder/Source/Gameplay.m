@@ -45,14 +45,11 @@
     _cat.gameplayLayer = self;
     timeSinceStart = 0;
     _cloud.physicsBody.collisionType=@"cloud";
-   // border.physicsBody.collisionMask = @[@"cup"];
-//    border.physicsBody.sensor = true;
-    
-//    [self schedule:@selector(checkCupLocationInGameplay) interval:.01];
+  
     [self schedule:@selector(updateTime) interval:1];
     [self schedule:@selector(loseEnergyIncrementally) interval:.1];
     [self schedule:@selector(loseEnergyFaster) interval:10]; 
-    _physicsNode.debugDraw = true;
+    //_physicsNode.debugDraw = true;
     _physicsNode.collisionDelegate = self;
     totalEnergy = 100;
     energy = 100;
@@ -66,27 +63,6 @@
 
 # pragma mark generate cups and move them down
 
-//static void
-//cupUpdateVelocity(cpBody *body, cpVect gravity, cpFloat damping, cpFloat dt)
-//{
-//    cpAssertSoft(body->m > 0.0f && body->i > 0.0f, "Body's mass and moment must be positive to simulate. (Mass: %f Moment: %f)", body->m, body->i);
-//    
-//    body->v = cpvadd(cpvmult(body->v, damping), cpvmult(cpvmult(body->f, body->m_inv), dt));
-//	body->w = body->w*damping + body->t*body->i_inv*dt;
-//    
-//	// Reset forces.
-//	body->f = cpvzero;
-//	body->t = 0.0f;
-//    
-//    //change this number for speed the blocks fall at
-//    int randomint = arc4random_uniform(40) + 80;
-//	body->v.y = -1 * randomint;
-//}
-//
-
--(void)changeVelocity {
-    
-}
 
 -(void)generateCup{
     //generates random cup type at a random x position at the top
@@ -131,19 +107,6 @@
     
 }
 
-//-(void)changeCollisionMask:(CCNode*)cup {
-//    cup.physicsBody.collisionType = @"cupFallen";
-////    cup.physicsBody.velocity = ccp(0,-100);
-//}
-
-//-(void)checkCupLocationInGameplay{
-//    //moves each cup in the array of cups on screen down
-//
-//    for (Cup *cup in _coffeeCupsOnScreen) {
-//                [cup checkIfCupInGameplay];
-//    }
-//}
-
 -(void)generateNewCup:(CCTime)delta {
     //after random amount of time less than three seconds: generate new cup
     
@@ -155,7 +118,6 @@
         [self generateCup];
         _timeSinceCup = 0;
         randomfloat = clampf((CCRANDOM_0_1() * 3),0.5,3);
-//        randomfloat=arc4random_uniform(30)/10;
     }
 }
 
@@ -169,9 +131,7 @@
         energy += coffeeball.coffeeEnergy;
     [self changeScorebarScale];
     }
-//    [[_physicsNode space] addPostStepBlock:^{
-//        [self ballRemoved:balloon];
-//    } key:cat];
+
     return NO;
 }
 
@@ -188,18 +148,6 @@
     return YES;
 }
 
-//cloud does not collide with ball
-//-(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair cloud:(CCNode *)nodeA ball:(CCNode *)nodeB {
-//    return NO;
-//}
-//
-//-(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair cloud:(CCNode *)nodeA cup:(CCNode *)nodeB {
-//    return NO;
-//}
-
-//-(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair ball:(CCNode *)nodeA cup:(CCNode *)nodeB {
-//    return NO;
-//}
 
 -(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair cup:(CCNode *)nodeA border:(CCNode *)nodeB {
     return YES;
@@ -208,16 +156,6 @@
 -(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair ball:(CCNode *)nodeA border:(CCNode *)nodeB {
     return NO;
 }
-
-//-(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair cupFallen:(CCNode *)nodeA cup:(CCNode *)nodeB {
-//    return NO;
-//}
-
-
-//-(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair cloud:(CCNode *)nodeA cupFallen:(CCNode *)nodeB {
-//    return YES;
-//}
-
 
 #pragma mark scorebar, timer, pause
 
