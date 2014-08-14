@@ -16,7 +16,7 @@
 	<key>currentResolution</key>
 	<integer>0</integer>
 	<key>currentSequenceId</key>
-	<integer>2</integer>
+	<integer>0</integer>
 	<key>docDimensionsType</key>
 	<integer>1</integer>
 	<key>fileType</key>
@@ -64,7 +64,7 @@
 									<integer>7</integer>
 									<key>value</key>
 									<array>
-										<string>ccbResources/orange.png</string>
+										<string>ccbResources/half coffee cup.png</string>
 										<string>Use regular file</string>
 									</array>
 								</dict>
@@ -95,7 +95,7 @@
 									<integer>7</integer>
 									<key>value</key>
 									<array>
-										<string>ccbResources/yellow.png</string>
+										<string>ccbResources/empty coffee cup.png</string>
 										<string>Use regular file</string>
 									</array>
 								</dict>
@@ -161,8 +161,8 @@
 						<string>ScaleLock</string>
 						<key>value</key>
 						<array>
-							<real>0.40000000596046448</real>
-							<real>0.40000000596046448</real>
+							<real>0.20000000298023224</real>
+							<real>0.20000000298023224</real>
 							<true/>
 							<integer>0</integer>
 						</array>
@@ -170,7 +170,7 @@
 					<dict>
 						<key>baseValue</key>
 						<array>
-							<string>ccbResources/red.png</string>
+							<string>ccbResources/coffee cup.png</string>
 							<string>Use regular file</string>
 						</array>
 						<key>name</key>
@@ -180,7 +180,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>ccbResources/yellow.png</string>
+							<string>ccbResources/empty coffee cup.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -197,6 +197,8 @@
 						</array>
 					</dict>
 				</array>
+				<key>seqExpanded</key>
+				<true/>
 			</dict>
 		</array>
 		<key>customClass</key>
@@ -234,40 +236,48 @@
 			<key>points</key>
 			<array>
 				<array>
-					<real>0.0</real>
-					<real>0.0</real>
+					<real>9.1937122344970703</real>
+					<real>3.1142313480377197</real>
 				</array>
 				<array>
-					<real>0.0</real>
-					<real>51.200000762939453</real>
+					<real>-0.63592112064361572</real>
+					<real>68.149703979492188</real>
 				</array>
 				<array>
-					<real>51.200000762939453</real>
-					<real>51.200000762939453</real>
+					<real>44.539512634277344</real>
+					<real>67.907142639160156</real>
 				</array>
 				<array>
-					<real>51.200000762939453</real>
-					<real>0.0</real>
+					<real>35.257682800292969</real>
+					<real>2.944347620010376</real>
+				</array>
+				<array>
+					<real>24.115312576293945</real>
+					<real>-0.21712228655815125</real>
 				</array>
 			</array>
 			<key>polygons</key>
 			<array>
 				<array>
 					<array>
-						<real>51.200000762939453</real>
-						<real>0.0</real>
+						<real>24.115312576293945</real>
+						<real>-0.21712228655815125</real>
 					</array>
 					<array>
-						<real>51.200000762939453</real>
-						<real>51.200000762939453</real>
+						<real>35.257682800292969</real>
+						<real>2.944347620010376</real>
 					</array>
 					<array>
-						<real>0.0</real>
-						<real>51.200000762939453</real>
+						<real>44.539512634277344</real>
+						<real>67.907142639160156</real>
 					</array>
 					<array>
-						<real>0.0</real>
-						<real>0.0</real>
+						<real>-0.63592112064361572</real>
+						<real>68.149703979492188</real>
+					</array>
+					<array>
+						<real>9.1937122344970703</real>
+						<real>3.1142313480377197</real>
 					</array>
 				</array>
 			</array>

@@ -10,7 +10,7 @@
 		<false/>
 	</dict>
 	<key>UUID</key>
-	<integer>5</integer>
+	<integer>6</integer>
 	<key>centeredOrigin</key>
 	<false/>
 	<key>currentResolution</key>
@@ -59,12 +59,12 @@
 									<key>name</key>
 									<string>spriteFrame</string>
 									<key>time</key>
-									<real>0.033333335071802139</real>
+									<real>0.0</real>
 									<key>type</key>
 									<integer>7</integer>
 									<key>value</key>
 									<array>
-										<string>ccbResources/orange.png</string>
+										<string>ccbResources/half coffee cup.png</string>
 										<string>Use regular file</string>
 									</array>
 								</dict>
@@ -95,7 +95,7 @@
 									<integer>7</integer>
 									<key>value</key>
 									<array>
-										<string>ccbResources/yellow.png</string>
+										<string>ccbResources/empty coffee cup.png</string>
 										<string>Use regular file</string>
 									</array>
 								</dict>
@@ -136,7 +136,7 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>0.0</real>
+							<real>-0.21600005030632019</real>
 							<real>0.0</real>
 							<integer>0</integer>
 							<integer>0</integer>
@@ -161,8 +161,8 @@
 						<string>ScaleLock</string>
 						<key>value</key>
 						<array>
-							<real>0.40000000596046448</real>
-							<real>0.40000000596046448</real>
+							<real>0.20000000298023224</real>
+							<real>0.20000000298023224</real>
 							<true/>
 							<integer>0</integer>
 						</array>
@@ -180,7 +180,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string></string>
+							<string>ccbResources/half coffee cup.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -197,6 +197,8 @@
 						</array>
 					</dict>
 				</array>
+				<key>seqExpanded</key>
+				<true/>
 			</dict>
 		</array>
 		<key>customClass</key>
@@ -234,40 +236,48 @@
 			<key>points</key>
 			<array>
 				<array>
-					<real>0.0</real>
-					<real>0.0</real>
+					<real>8.3860397338867188</real>
+					<real>3.3361897468566895</real>
 				</array>
 				<array>
-					<real>0.0</real>
-					<real>51.200000762939453</real>
+					<real>-0.37209051847457886</real>
+					<real>68.081367492675781</real>
 				</array>
 				<array>
-					<real>51.200000762939453</real>
-					<real>51.200000762939453</real>
+					<real>44.127304077148438</real>
+					<real>68.390174865722656</real>
 				</array>
 				<array>
-					<real>51.200000762939453</real>
-					<real>0.0</real>
+					<real>35.547203063964844</real>
+					<real>3.4112837314605713</real>
+				</array>
+				<array>
+					<real>23.217479705810547</real>
+					<real>-0.62352806329727173</real>
 				</array>
 			</array>
 			<key>polygons</key>
 			<array>
 				<array>
 					<array>
-						<real>51.200000762939453</real>
-						<real>0.0</real>
+						<real>23.217479705810547</real>
+						<real>-0.62352806329727173</real>
 					</array>
 					<array>
-						<real>51.200000762939453</real>
-						<real>51.200000762939453</real>
+						<real>35.547203063964844</real>
+						<real>3.4112837314605713</real>
 					</array>
 					<array>
-						<real>0.0</real>
-						<real>51.200000762939453</real>
+						<real>44.127304077148438</real>
+						<real>68.390174865722656</real>
 					</array>
 					<array>
-						<real>0.0</real>
-						<real>0.0</real>
+						<real>-0.37209051847457886</real>
+						<real>68.081367492675781</real>
+					</array>
+					<array>
+						<real>8.3860397338867188</real>
+						<real>3.3361897468566895</real>
 					</array>
 				</array>
 			</array>
@@ -431,7 +441,7 @@
 			<key>resolution</key>
 			<real>30</real>
 			<key>scale</key>
-			<real>32</real>
+			<real>512</real>
 			<key>sequenceId</key>
 			<integer>1</integer>
 			<key>soundChannel</key>

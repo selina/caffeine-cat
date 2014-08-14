@@ -18,6 +18,7 @@
     self.userInteractionEnabled = true;
     self.physicsBody.collisionType = @"cup";
     //self.physicsBody.collisionMask = @[@"cup"];
+    //self.physicsBody.collisionCategories = @[@"cup"];
 }
 
 //called on every touch

@@ -40,18 +40,19 @@
     self.userInteractionEnabled = TRUE;
     self.contentNode = _contentNode; 
     self.currentPhysicsNode = _physicsNode; 
-    _coffeeCupTypeArray = [NSMutableArray arrayWithObjects: @"orange", @"yellow", @"red", nil];
+    _coffeeCupTypeArray = [NSMutableArray arrayWithObjects: @"orange", @"orange", @"yellow", @"red", @"red", nil];
     self.coffeeCupsOnScreen = [NSMutableArray arrayWithObjects: nil];
     _cat.gameplayLayer = self;
     timeSinceStart = 0;
     _cloud.physicsBody.collisionType=@"cloud";
-    border.physicsBody.sensor = true;
+   // border.physicsBody.collisionMask = @[@"cup"];
+//    border.physicsBody.sensor = true;
     
 //    [self schedule:@selector(checkCupLocationInGameplay) interval:.01];
     [self schedule:@selector(updateTime) interval:1];
     [self schedule:@selector(loseEnergyIncrementally) interval:.1];
     [self schedule:@selector(loseEnergyFaster) interval:10]; 
-    //_physicsNode.debugDraw = true;
+    _physicsNode.debugDraw = true;
     _physicsNode.collisionDelegate = self;
     totalEnergy = 100;
     energy = 100;
@@ -90,7 +91,7 @@
 -(void)generateCup{
     //generates random cup type at a random x position at the top
     
-    int randomint = arc4random_uniform(3);
+    int randomint = arc4random_uniform(5);
     Cup *cupinstance = (Cup*)[CCBReader load:[_coffeeCupTypeArray objectAtIndex:randomint]];
     //cupinstance.physicsBody.body.body->velocity_func = cupUpdateVelocity;
     cupinstance.cupfill = [_coffeeCupTypeArray objectAtIndex:randomint];
@@ -107,7 +108,7 @@
     
     float contentNodeWidth = _contentNode.contentSize.width;
     
-    float x = clampf(CCRANDOM_0_1() * contentNodeWidth, contentNodeWidth*0.1, contentNodeWidth*0.9);
+    float x = clampf(CCRANDOM_0_1() * contentNodeWidth, contentNodeWidth*0.1, contentNodeWidth*0.8);
     float y = _cloud.position.y;
     CGPoint cupLocation = ccp(x, y);
     
@@ -125,15 +126,15 @@
     
     cupinstance.physicsBody.velocity = ccp(0,negativevelocity);
 
-    [self performSelector:@selector(changeCollisionMask:) withObject:(cupinstance) afterDelay:(0.50)];
+   // [self performSelector:@selector(changeCollisionMask:) withObject:(cupinstance) afterDelay:(0.50)];
     
     
 }
 
--(void)changeCollisionMask:(CCNode*)cup {
-    cup.physicsBody.collisionType = @"cupFallen";
-//    cup.physicsBody.velocity = ccp(0,-100);
-}
+//-(void)changeCollisionMask:(CCNode*)cup {
+//    cup.physicsBody.collisionType = @"cupFallen";
+////    cup.physicsBody.velocity = ccp(0,-100);
+//}
 
 //-(void)checkCupLocationInGameplay{
 //    //moves each cup in the array of cups on screen down
@@ -188,27 +189,34 @@
 }
 
 //cloud does not collide with ball
--(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair cloud:(CCNode *)nodeA ball:(CCNode *)nodeB {
-    return NO;
-}
+//-(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair cloud:(CCNode *)nodeA ball:(CCNode *)nodeB {
+//    return NO;
+//}
+//
+//-(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair cloud:(CCNode *)nodeA cup:(CCNode *)nodeB {
+//    return NO;
+//}
 
--(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair cloud:(CCNode *)nodeA cup:(CCNode *)nodeB {
-    return NO;
-}
+//-(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair ball:(CCNode *)nodeA cup:(CCNode *)nodeB {
+//    return NO;
+//}
 
--(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair ball:(CCNode *)nodeA cup:(CCNode *)nodeB {
-    return NO;
-}
-
-
--(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair cupFallen:(CCNode *)nodeA cup:(CCNode *)nodeB {
-    return NO;
-}
-
-
--(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair cloud:(CCNode *)nodeA cupFallen:(CCNode *)nodeB {
+-(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair cup:(CCNode *)nodeA border:(CCNode *)nodeB {
     return YES;
 }
+
+-(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair ball:(CCNode *)nodeA border:(CCNode *)nodeB {
+    return NO;
+}
+
+//-(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair cupFallen:(CCNode *)nodeA cup:(CCNode *)nodeB {
+//    return NO;
+//}
+
+
+//-(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair cloud:(CCNode *)nodeA cupFallen:(CCNode *)nodeB {
+//    return YES;
+//}
 
 
 #pragma mark scorebar, timer, pause
