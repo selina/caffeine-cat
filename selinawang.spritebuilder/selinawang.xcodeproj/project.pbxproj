@@ -91,6 +91,7 @@
 		6A9104C3198A916B0051E41B /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A9104C2198A916B0051E41B /* Settings.m */; };
 		6AA33A5F19746A7500358E54 /* Cup.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AA33A5E19746A7500358E54 /* Cup.m */; };
 		6AA45AD3199E5C62009236E2 /* CatNoise.wav in Resources */ = {isa = PBXBuildFile; fileRef = 6AA45AD2199E5C62009236E2 /* CatNoise.wav */; };
+		6AA45AD7199EB3EE009236E2 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AA45AD6199EB3EE009236E2 /* Crashlytics.framework */; };
 		6AB0AC5E197030CE009816A7 /* Gameplay.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AB0AC5D197030CE009816A7 /* Gameplay.m */; };
 		8392007A18EE8E3300B6C429 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8392007918EE8E3300B6C429 /* GLKit.framework */; };
 		B737893B180761570076A88C /* Published-iOS in Resources */ = {isa = PBXBuildFile; fileRef = B737893A180761570076A88C /* Published-iOS */; };
@@ -238,6 +239,7 @@
 		6AA33A5D19746A7500358E54 /* Cup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Cup.h; path = Source/Cup.h; sourceTree = "<group>"; };
 		6AA33A5E19746A7500358E54 /* Cup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Cup.m; path = Source/Cup.m; sourceTree = "<group>"; };
 		6AA45AD2199E5C62009236E2 /* CatNoise.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = CatNoise.wav; sourceTree = "<group>"; };
+		6AA45AD6199EB3EE009236E2 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		6AB0AC5C197030CE009816A7 /* Gameplay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Gameplay.h; path = Source/Gameplay.h; sourceTree = "<group>"; };
 		6AB0AC5D197030CE009816A7 /* Gameplay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Gameplay.m; path = Source/Gameplay.m; sourceTree = "<group>"; };
 		8392007918EE8E3300B6C429 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
@@ -281,6 +283,7 @@
 				B737898A1807642B0076A88C /* libcocos2d.a in Frameworks */,
 				B77F1B3217B978D7009739AE /* QuartzCore.framework in Frameworks */,
 				B77F1B3417B978D7009739AE /* OpenGLES.framework in Frameworks */,
+				6AA45AD7199EB3EE009236E2 /* Crashlytics.framework in Frameworks */,
 				B77F1B3617B978D7009739AE /* OpenAL.framework in Frameworks */,
 				B77F1B3817B978D7009739AE /* AudioToolbox.framework in Frameworks */,
 				B77F1B3A17B978D7009739AE /* AVFoundation.framework in Frameworks */,
@@ -481,6 +484,7 @@
 		B77F1B3017B978D7009739AE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6AA45AD6199EB3EE009236E2 /* Crashlytics.framework */,
 				6A857773199E4BCA001A8DF3 /* mgwuSDK.embeddedframework */,
 				6A8576DC199E4892001A8DF3 /* SystemConfiguration.framework */,
 				6A8576DA199E4887001A8DF3 /* StoreKit.framework */,
@@ -534,6 +538,7 @@
 				B77F1B2A17B978D7009739AE /* Sources */,
 				B77F1B2B17B978D7009739AE /* Frameworks */,
 				B77F1B2C17B978D7009739AE /* Resources */,
+				6AA45AD5199EB37C009236E2 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -684,6 +689,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		6AA45AD5199EB37C009236E2 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Crashlytics.framework/run 6d9ecb019e2413cd4e644d50f23913ed1c8fb45c 5074600867ebd220608b0e093026be994f7ee025e0f5cb1e1f81f36f238ebe41";
+		};
 		D2E0167A18D782EC00927430 /* Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -696,7 +714,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "osascript -e 'tell application \"System Events\"' -e 'set ProcessList to name of every process' -e 'if \"SpriteBuilder\" is in ProcessList then' -e 'tell application \"SpriteBuilder\" to publish' -e 'end if' -e 'end tell'";
+			shellScript = "";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -803,6 +821,7 @@
 					"$(inherited)",
 					"/Users/Selina/Downloads/mgwuSDK-master/mgwuSDK.embeddedframework",
 					"$(PROJECT_DIR)/mgwuSDK.embeddedframework",
+					"$(PROJECT_DIR)",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -843,6 +862,7 @@
 					"$(inherited)",
 					"/Users/Selina/Downloads/mgwuSDK-master/mgwuSDK.embeddedframework",
 					"$(PROJECT_DIR)/mgwuSDK.embeddedframework",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Source/Prefix.pch;

@@ -172,15 +172,23 @@
     [nodeA addChild:[CCBReader load:@"numbersFlashing"]];
     nodeA.physicsBody.collisionType = @"cupCollided";
     
-    //remove cup
     
     
-    
-    //decrease energy
-    
+    //remove cup after three seconds
+    [self performSelector:@selector(removeLitter:) withObject:nodeA afterDelay:3.f];
     
     return NO;
 }
+
+
+
+-(void)removeLitter:(Cup*)cupinstance{
+    [cupinstance removeFromParent];
+    energy -= 3;
+    [self changeScorebarScale];
+}
+
+
 #pragma mark scorebar, timer, pause
 
 //change the timer label every second

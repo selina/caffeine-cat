@@ -27,11 +27,13 @@
 
 #import "AppDelegate.h"
 #import "CCBuilderReader.h"
+#import <Crashlytics/Crashlytics.h>
 
 @implementation AppController
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [Crashlytics startWithAPIKey:@"6d9ecb019e2413cd4e644d50f23913ed1c8fb45c"];
     // Configure Cocos2d with the options set in SpriteBuilder
     NSString* configPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"Published-iOS"]; // TODO: add support for Published-Android support
     configPath = [configPath stringByAppendingPathComponent:@"configCocos2d.plist"];
@@ -61,6 +63,7 @@
     //[MGWU setAppiraterAppId: andAppName:<#(NSString *)#>]
     [MGWU setReminderMessage:@"Don't let the cat fall asleep! Play Caffeine Cat now!"];
     
+    [Crashlytics startWithAPIKey:@"6d9ecb019e2413cd4e644d50f23913ed1c8fb45c"];
 }
 
 - (CCScene*) startScene
