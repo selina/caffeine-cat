@@ -155,7 +155,7 @@
 				6A8576D3199DBC17001A8DF3 /* iTunesArtwork@2x.png */,
 			);
 			name = "App Icon [Squared]";
-			path = "Artwork/App Icon [Squared]";
+			path = "../../Artwork/App Icon [Squared]";
 			sourceTree = "<group>";
 		};
 		9222E2B918734FF800A246C7 /* libs */ = {
@@ -215,7 +215,6 @@
 		B77F1B2517B978D7009739AE = {
 			isa = PBXGroup;
 			children = (
-				6A8576C3199DBC17001A8DF3 /* App Icon [Squared] */,
 				B737893C1807616C0076A88C /* Source */,
 				B77F1B4617B978D7009739AE /* Resources */,
 				9222E2B918734FF800A246C7 /* libs */,
@@ -254,6 +253,7 @@
 		B77F1B4617B978D7009739AE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				6A8576C3199DBC17001A8DF3 /* App Icon [Squared] */,
 				B73789911807667A0076A88C /* Icons */,
 				B737893A180761570076A88C /* Published-iOS */,
 			);
