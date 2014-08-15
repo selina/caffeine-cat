@@ -55,6 +55,12 @@
     [self setupCocos2dWithOptions:cocos2dSetup];
     
     return YES;
+    
+    [MGWU loadMGWU:@"catsarereallycuteandcoffeeisreallygreat123"];
+    // TODO: prompt for rating
+    //[MGWU setAppiraterAppId: andAppName:<#(NSString *)#>]
+    [MGWU setReminderMessage:@"Don't let the cat fall asleep! Play Caffeine Cat now!"];
+    
 }
 
 - (CCScene*) startScene

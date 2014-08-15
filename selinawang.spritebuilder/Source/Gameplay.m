@@ -61,6 +61,7 @@
     energyLostPerSecond = 5;
     energyLossIncrement = .5;
     maximumTimeSinceCup = 3;
+    velocityThreshold = 50; 
 }
 
 - (void)update:(CCTime)delta {
@@ -106,9 +107,7 @@
     int negativevelocity = -1 * randomvelocity;
 
     
-    cupinstance.physicsBody.velocity = ccp(0,negativevelocity);
-
-
+    cupinstance.physicsBody.velocity = ccp(0, negativevelocity);
 }
 
 -(void)cupsFallFaster {
