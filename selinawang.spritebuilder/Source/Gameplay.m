@@ -140,6 +140,7 @@
 -(BOOL) ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair cat:(CCNode *)cat ball:(Ball *)coffeeball {
     coffeeball.visible=NO;
     coffeeball.physicsBody.collisionMask=@[];
+    [_cat.animationManager runAnimationsForSequenceNamed:@"vibrate"];
     if (energy < 100) {
         energy += coffeeball.coffeeEnergy;
     [self changeScorebarScale];
