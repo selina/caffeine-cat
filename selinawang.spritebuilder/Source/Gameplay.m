@@ -32,6 +32,8 @@
     CCNode *border;
     float energyLossIncrement;
     float energyLostPerSecond;
+    float maximumTimeSinceCup;
+    int velocityThreshold;
 }
 
 
@@ -48,13 +50,17 @@
   
     [self schedule:@selector(updateTime) interval:1];
     [self schedule:@selector(loseEnergyIncrementally) interval:.1];
-    [self schedule:@selector(loseEnergyFaster) interval:10]; 
+    [self schedule:@selector(loseEnergyFaster) interval:10];
+    [self schedule:@selector(setMaxTimeSinceCup) interval:11];
+    [self schedule:@selector(cupsFallFaster) interval:8];
+    
     //_physicsNode.debugDraw = true;
     _physicsNode.collisionDelegate = self;
     totalEnergy = 100;
     energy = 100;
     energyLostPerSecond = 5;
     energyLossIncrement = .5;
+    maximumTimeSinceCup = 3;
 }
 
 - (void)update:(CCTime)delta {
@@ -96,17 +102,18 @@
     
     [self.coffeeCupsOnScreen addObject:cupinstance];
     
-    int randomvelocity = arc4random_uniform(40) + 50;
+    int randomvelocity = arc4random_uniform(40) + velocityThreshold;
     int negativevelocity = -1 * randomvelocity;
 
     
     cupinstance.physicsBody.velocity = ccp(0,negativevelocity);
 
-   // [self performSelector:@selector(changeCollisionMask:) withObject:(cupinstance) afterDelay:(0.50)];
-    
-    
+
 }
 
+-(void)cupsFallFaster {
+    velocityThreshold += 10;
+}
 -(void)generateNewCup:(CCTime)delta {
     //after random amount of time less than three seconds: generate new cup
     
@@ -117,8 +124,12 @@
     if (_timeSinceCup > randomfloat) {
         [self generateCup];
         _timeSinceCup = 0;
-        randomfloat = clampf((CCRANDOM_0_1() * 3),0.5,3);
+        randomfloat = clampf((CCRANDOM_0_1() * maximumTimeSinceCup),0.5,maximumTimeSinceCup);
     }
+}
+
+-(void)setMaxTimeSinceCup {
+    maximumTimeSinceCup *= 0.9;
 }
 
 #pragma mark collisions
@@ -140,14 +151,11 @@
     return NO;
 }
 
-
-
 //cup collides with buffer if cup in gameplay
 
 -(BOOL) ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair buffer:(CCNode *)nodeA cup:(Cup *)nodeB {
     return YES;
 }
-
 
 -(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair cup:(CCNode *)nodeA border:(CCNode *)nodeB {
     return YES;
