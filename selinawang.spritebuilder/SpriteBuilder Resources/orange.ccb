@@ -150,8 +150,8 @@
 						<string>Point</string>
 						<key>value</key>
 						<array>
-							<real>0.0</real>
-							<real>0.0</real>
+							<real>0.5</real>
+							<real>0.5</real>
 						</array>
 					</dict>
 					<dict>
@@ -236,48 +236,48 @@
 			<key>points</key>
 			<array>
 				<array>
-					<real>8.3860397338867188</real>
-					<real>3.3361897468566895</real>
+					<real>-13.104257583618164</real>
+					<real>-30.365894317626953</real>
 				</array>
 				<array>
-					<real>-0.37209051847457886</real>
-					<real>68.081367492675781</real>
+					<real>-22.124263763427734</real>
+					<real>33.944988250732422</real>
 				</array>
 				<array>
-					<real>44.127304077148438</real>
-					<real>68.390174865722656</real>
+					<real>22.506128311157227</real>
+					<real>34.554607391357422</real>
 				</array>
 				<array>
-					<real>35.547203063964844</real>
-					<real>3.4112837314605713</real>
+					<real>14.532679557800293</real>
+					<real>-30.219377517700195</real>
 				</array>
 				<array>
-					<real>23.217479705810547</real>
-					<real>-0.62352806329727173</real>
+					<real>0.80186271667480469</real>
+					<real>-34.992977142333984</real>
 				</array>
 			</array>
 			<key>polygons</key>
 			<array>
 				<array>
 					<array>
-						<real>23.217479705810547</real>
-						<real>-0.62352806329727173</real>
+						<real>0.80186271667480469</real>
+						<real>-34.992977142333984</real>
 					</array>
 					<array>
-						<real>35.547203063964844</real>
-						<real>3.4112837314605713</real>
+						<real>14.532679557800293</real>
+						<real>-30.219377517700195</real>
 					</array>
 					<array>
-						<real>44.127304077148438</real>
-						<real>68.390174865722656</real>
+						<real>22.506128311157227</real>
+						<real>34.554607391357422</real>
 					</array>
 					<array>
-						<real>-0.37209051847457886</real>
-						<real>68.081367492675781</real>
+						<real>-22.124263763427734</real>
+						<real>33.944988250732422</real>
 					</array>
 					<array>
-						<real>8.3860397338867188</real>
-						<real>3.3361897468566895</real>
+						<real>-13.104257583618164</real>
+						<real>-30.365894317626953</real>
 					</array>
 				</array>
 			</array>
@@ -326,8 +326,8 @@
 				<string>Point</string>
 				<key>value</key>
 				<array>
-					<real>0.0</real>
-					<real>0.0</real>
+					<real>0.5</real>
+					<real>0.5</real>
 				</array>
 			</dict>
 			<dict>

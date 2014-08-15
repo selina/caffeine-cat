@@ -21,7 +21,6 @@
     NSMutableArray *_coffeeCupTypeArray;
     int catEnergy;
     float randomfloat;
-    CCNode *_background;
     int timeSinceStart;
     CCLabelTTF *_timeLabel;
     CCNode *_scorebar;
@@ -169,6 +168,19 @@
     return NO;
 }
 
+-(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair cup:(CCNode *)nodeA ground:(CCNode *)nodeB {
+    [nodeA addChild:[CCBReader load:@"numbersFlashing"]];
+    nodeA.physicsBody.collisionType = @"cupCollided";
+    
+    //remove cup
+    
+    
+    
+    //decrease energy
+    
+    
+    return NO;
+}
 #pragma mark scorebar, timer, pause
 
 //change the timer label every second
