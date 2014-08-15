@@ -35,7 +35,7 @@
         explosion.position = self.positionInPoints;
         [self.gameplayLayer addChild:explosion];
         [self removeCup];
-        [self.gameplayLayer removeChild:explosion];
+    
     }
     else if ([self.cupfill isEqualToString:@"orange"]) {
         self.isEmpty = true;

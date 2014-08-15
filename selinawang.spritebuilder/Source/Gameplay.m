@@ -47,6 +47,9 @@
     _cat.gameplayLayer = self;
     timeSinceStart = 0;
     _cloud.physicsBody.collisionType=@"cloud";
+    
+    NSURL *catNoiseUrl=[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"CatNoise" ofType:@"wav"]];
+        AudioServicesCreateSystemSoundID((__bridge CFURLRef)catNoiseUrl, &catNoise);
   
     [self schedule:@selector(updateTime) interval:1];
     [self schedule:@selector(loseEnergyIncrementally) interval:.1];
@@ -140,6 +143,7 @@
     if (energy < 100) {
         energy += coffeeball.coffeeEnergy;
     [self changeScorebarScale];
+        AudioServicesPlaySystemSound(catNoise); 
     }
 
     return NO;

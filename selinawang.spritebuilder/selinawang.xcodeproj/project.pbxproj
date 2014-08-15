@@ -163,6 +163,7 @@
 		6A857802199E4EF4001A8DF3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6A857801199E4EF4001A8DF3 /* Images.xcassets */; };
 		6A9104C3198A916B0051E41B /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A9104C2198A916B0051E41B /* Settings.m */; };
 		6AA33A5F19746A7500358E54 /* Cup.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AA33A5E19746A7500358E54 /* Cup.m */; };
+		6AA45AD3199E5C62009236E2 /* CatNoise.wav in Resources */ = {isa = PBXBuildFile; fileRef = 6AA45AD2199E5C62009236E2 /* CatNoise.wav */; };
 		6AB0AC5E197030CE009816A7 /* Gameplay.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AB0AC5D197030CE009816A7 /* Gameplay.m */; };
 		8392007A18EE8E3300B6C429 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8392007918EE8E3300B6C429 /* GLKit.framework */; };
 		B737893B180761570076A88C /* Published-iOS in Resources */ = {isa = PBXBuildFile; fileRef = B737893A180761570076A88C /* Published-iOS */; };
@@ -382,6 +383,7 @@
 		6A9104C2198A916B0051E41B /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Settings.m; path = Source/Settings.m; sourceTree = "<group>"; };
 		6AA33A5D19746A7500358E54 /* Cup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Cup.h; path = Source/Cup.h; sourceTree = "<group>"; };
 		6AA33A5E19746A7500358E54 /* Cup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Cup.m; path = Source/Cup.m; sourceTree = "<group>"; };
+		6AA45AD2199E5C62009236E2 /* CatNoise.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = CatNoise.wav; sourceTree = "<group>"; };
 		6AB0AC5C197030CE009816A7 /* Gameplay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Gameplay.h; path = Source/Gameplay.h; sourceTree = "<group>"; };
 		6AB0AC5D197030CE009816A7 /* Gameplay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Gameplay.m; path = Source/Gameplay.m; sourceTree = "<group>"; };
 		8392007918EE8E3300B6C429 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
@@ -702,6 +704,7 @@
 		B77F1B2517B978D7009739AE = {
 			isa = PBXGroup;
 			children = (
+				6AA45AD2199E5C62009236E2 /* CatNoise.wav */,
 				B737893C1807616C0076A88C /* Source */,
 				B77F1B4617B978D7009739AE /* Resources */,
 				9222E2B918734FF800A246C7 /* libs */,
@@ -937,6 +940,7 @@
 				6A857760199E490B001A8DF3 /* MGWUFacebookLoginLandscapeDark.nib in Resources */,
 				6A8577DD199E4BCB001A8DF3 /* MGWUBackground-Landscape@2x~iphone.png in Resources */,
 				6A8577EF199E4BCB001A8DF3 /* MGWUFacebookLoginLandscapeDark.nib in Resources */,
+				6AA45AD3199E5C62009236E2 /* CatNoise.wav in Resources */,
 				6A857742199E490B001A8DF3 /* mgwu-m.png in Resources */,
 				6A85772E199E490B001A8DF3 /* bluechatbubble.png in Resources */,
 				6A8577E6199E4BCB001A8DF3 /* MGWUBackgroundDark-Landscape~ipad.png in Resources */,
