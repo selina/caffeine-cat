@@ -33,6 +33,7 @@
     float energyLostPerSecond;
     float maximumTimeSinceCup;
     int velocityThreshold;
+    CCNode *_grass;
 }
 
 
@@ -56,7 +57,7 @@
     [self schedule:@selector(setMaxTimeSinceCup) interval:11];
     [self schedule:@selector(cupsFallFaster) interval:8];
     
-    //_physicsNode.debugDraw = true;
+   // _physicsNode.debugDraw = true;
     _physicsNode.collisionDelegate = self;
     totalEnergy = 100;
     energy = 100;
@@ -68,6 +69,7 @@
 
 - (void)update:(CCTime)delta {
     [self generateNewCup:delta];
+    
 }
 
 # pragma mark generate cups and move them down
@@ -169,10 +171,12 @@
 }
 
 -(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair cup:(CCNode *)nodeA ground:(CCNode *)nodeB {
-    [nodeA addChild:[CCBReader load:@"numbersFlashing"]];
+    CCNode *animation=[CCBReader load:@"numbersFlashing"];
+    animation.positionType = CCPositionTypeNormalized;
+    animation.position = ccp(.5,.5);
+    [nodeA addChild:animation];
+    
     nodeA.physicsBody.collisionType = @"cupCollided";
-    
-    
     
     //remove cup after three seconds
     [self performSelector:@selector(removeLitter:) withObject:nodeA afterDelay:3.f];
@@ -183,10 +187,17 @@
 
 
 -(void)removeLitter:(Cup*)cupinstance{
+    CCParticleSystem *explosion = (CCParticleSystem *)[CCBReader load:@"CupExplosion"];
+    explosion.autoRemoveOnFinish = true;
+    explosion.position = cupinstance.positionInPoints;
+    [cupinstance.parent addChild:explosion];
+    
     [cupinstance removeFromParent];
     energy -= 3;
     [self changeScorebarScale];
+
 }
+
 
 
 #pragma mark scorebar, timer, pause

@@ -30,7 +30,7 @@
     
     if (self.isEmpty == true) {
       
-        CCParticleSystem *explosion = (CCParticleSystem *)[CCBReader load:@"CupExplosion"];
+        CCParticleSystem *explosion = (CCParticleSystem *)[CCBReader load:@"CupSparkle"];
         explosion.autoRemoveOnFinish = true;
         explosion.position = self.positionInPoints;
         [self.gameplayLayer addChild:explosion];

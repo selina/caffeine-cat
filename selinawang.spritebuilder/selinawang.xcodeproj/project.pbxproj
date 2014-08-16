@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6A137A42199ED57400EE45D5 /* Images-2.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6A137A41199ED57400EE45D5 /* Images-2.xcassets */; };
 		6A321908197EA8C900648C5C /* CCPhysicsTouchNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A321907197EA8C900648C5C /* CCPhysicsTouchNode.m */; };
 		6A7CCEB3198035D800C2511C /* Cat.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A7CCEB2198035D800C2511C /* Cat.m */; };
 		6A7CCEB71980369400C2511C /* Ball.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A7CCEB61980369400C2511C /* Ball.m */; };
@@ -132,6 +133,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6A137A41199ED57400EE45D5 /* Images-2.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = "Images-2.xcassets"; path = "selinawang/Images-2.xcassets"; sourceTree = SOURCE_ROOT; };
 		6A321906197EA8C900648C5C /* CCPhysicsTouchNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCPhysicsTouchNode.h; sourceTree = "<group>"; };
 		6A321907197EA8C900648C5C /* CCPhysicsTouchNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCPhysicsTouchNode.m; sourceTree = "<group>"; };
 		6A7CCEB1198035D800C2511C /* Cat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Cat.h; path = Source/Cat.h; sourceTree = "<group>"; };
@@ -509,6 +511,7 @@
 		B77F1B4617B978D7009739AE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				6A137A41199ED57400EE45D5 /* Images-2.xcassets */,
 				6A857801199E4EF4001A8DF3 /* Images.xcassets */,
 				6A8576C3199DBC17001A8DF3 /* App Icon [Squared] */,
 				B73789911807667A0076A88C /* Icons */,
@@ -679,6 +682,7 @@
 				6A8577FC199E4BCB001A8DF3 /* operator.unavailable.png in Resources */,
 				6A8577BF199E4BCB001A8DF3 /* FacebookIcon.png in Resources */,
 				6A8577E8199E4BCB001A8DF3 /* MGWUBackgroundDark-Portrait@2x~ipad.png in Resources */,
+				6A137A42199ED57400EE45D5 /* Images-2.xcassets in Resources */,
 				6A8577EA199E4BCB001A8DF3 /* MGWUBackgroundDark-Portrait~ipad.png in Resources */,
 				6A8577D7199E4BCB001A8DF3 /* MGWUAboutFooter-Landscape~iphone.png in Resources */,
 				6A8577CA199E4BCB001A8DF3 /* grey-background.png in Resources */,
@@ -812,7 +816,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImageNew;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -853,7 +857,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImageNew;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
