@@ -7,8 +7,51 @@
 //
 
 #import "MainScene.h"
+#import "Cup.h"
 
-@implementation MainScene
+@implementation MainScene {
+    CCPhysicsNode *_physicsNode;
+    CCNode *_contentNode;
+    NSMutableArray *_coffeeCupTypeArray;
+    float randomfloat;
+    int timeSinceCup;
+    }
+
+
+- (void)didLoadFromCCB {
+    // tell the scene to accept touches
+    self.userInteractionEnabled = TRUE;
+    _coffeeCupTypeArray = [NSMutableArray arrayWithObjects: @"orange", @"orange", @"yellow", @"red", @"red", nil];
+    
+    [self schedule:@selector(generateCup) interval:2]; 
+
+    }
+
+-(void)generateCup{
+    //generates random cup type at a random x position at the top
+    
+    int randomint = arc4random_uniform(5);
+    Cup *cupinstance = (Cup*)[CCBReader load:[_coffeeCupTypeArray objectAtIndex:randomint]];
+    
+    
+    srandom(time(NULL));
+    
+    float contentNodeWidth = _contentNode.contentSize.width;
+    
+    float x = clampf(CCRANDOM_0_1() * contentNodeWidth, contentNodeWidth*0.1, contentNodeWidth*0.8);
+    float y = _contentNode.contentSize.height;
+    CGPoint cupLocation = ccp(x, y);
+    
+    cupinstance.positionType = CCPositionTypeNormalized;
+    cupinstance.position = cupLocation;
+   
+    
+    [_physicsNode addChild:cupinstance];
+    
+    cupinstance.physicsBody.velocity = ccp(0, -80);
+}
+
+
 
 -(void)play {
     CCScene *gameplayScene = [CCBReader loadAsScene:@"Gameplay"];

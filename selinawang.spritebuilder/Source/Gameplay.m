@@ -42,7 +42,7 @@
     self.userInteractionEnabled = TRUE;
     self.contentNode = _contentNode; 
     self.currentPhysicsNode = _physicsNode; 
-    _coffeeCupTypeArray = [NSMutableArray arrayWithObjects: @"orange", @"orange", @"yellow", @"red", @"red", nil];
+    _coffeeCupTypeArray = [NSMutableArray arrayWithObjects:  @"orange", @"yellow", @"red", nil];
     self.coffeeCupsOnScreen = [NSMutableArray arrayWithObjects: nil];
     _cat.gameplayLayer = self;
     timeSinceStart = 0;
@@ -78,7 +78,7 @@
 -(void)generateCup{
     //generates random cup type at a random x position at the top
     
-    int randomint = arc4random_uniform(5);
+    int randomint = arc4random_uniform(3);
     Cup *cupinstance = (Cup*)[CCBReader load:[_coffeeCupTypeArray objectAtIndex:randomint]];
     //cupinstance.physicsBody.body.body->velocity_func = cupUpdateVelocity;
     cupinstance.cupfill = [_coffeeCupTypeArray objectAtIndex:randomint];

@@ -354,7 +354,7 @@
 				<key>children</key>
 				<array/>
 				<key>customClass</key>
-				<string>Pause</string>
+				<string></string>
 				<key>displayName</key>
 				<string>CCButton</string>
 				<key>memberVarAssignmentName</key>
@@ -461,7 +461,7 @@
 						<string>String</string>
 						<key>value</key>
 						<array>
-							<string>Settings</string>
+							<string>settings</string>
 							<false/>
 						</array>
 					</dict>
@@ -680,7 +680,7 @@
 				<key>children</key>
 				<array/>
 				<key>customClass</key>
-				<string>Pause</string>
+				<string></string>
 				<key>displayName</key>
 				<string>CCButton</string>
 				<key>memberVarAssignmentName</key>
@@ -1006,7 +1006,7 @@
 				<key>children</key>
 				<array/>
 				<key>customClass</key>
-				<string>Pause</string>
+				<string></string>
 				<key>displayName</key>
 				<string>CCButton</string>
 				<key>memberVarAssignmentName</key>
@@ -1332,7 +1332,7 @@
 				<key>children</key>
 				<array/>
 				<key>customClass</key>
-				<string>Pause</string>
+				<string></string>
 				<key>displayName</key>
 				<string>CCButton</string>
 				<key>memberVarAssignmentName</key>
@@ -1652,7 +1652,7 @@
 			</dict>
 		</array>
 		<key>customClass</key>
-		<string></string>
+		<string>Pause</string>
 		<key>displayName</key>
 		<string>CCNode</string>
 		<key>memberVarAssignmentName</key>

@@ -12,11 +12,14 @@
     CCLabelTTF *_lastScore;
     CCLabelTTF *_bestScore;
     NSString *highScoreString;
+    CCLabelTTF *newHighScore;
 }
 
 -(void)onEnter{
     [super onEnter];
     [self setScoreLabels];
+    newHighScore.visible = NO;
+    
 }
 -(void)playAgain {
     CCScene *mainScene = [CCBReader loadAsScene:@"Gameplay"];
@@ -40,6 +43,7 @@
     //if last score greater than best score, best score equals last score
     int highScoreInt = [[NSUserDefaults standardUserDefaults] integerForKey:@"High Score Int"];
     if (lastScoreInt > highScoreInt) {
+        newHighScore.visible = YES; 
         highScoreInt = lastScoreInt;
         [[NSUserDefaults standardUserDefaults] setInteger:highScoreInt forKey:@"High Score Int"];
         
@@ -48,6 +52,8 @@
         _bestScore.string = highScoreString;
         
         [[NSUserDefaults standardUserDefaults] setObject:highScoreString forKey:@"High Score String"];
+        
+        
     }
     else {
         highScoreString = [[NSUserDefaults standardUserDefaults] objectForKey:@"High Score String"];
