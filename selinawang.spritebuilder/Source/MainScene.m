@@ -20,4 +20,10 @@
     [[CCDirector sharedDirector] pushScene:gameplayScene];
 }
 
+-(void)tutorial {
+    CCScene *gameplayScene = [CCBReader loadAsScene:@"Tutorial"];
+    [[CCDirector sharedDirector] pushScene:gameplayScene];
+
+}
+
 @end

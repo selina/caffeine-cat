@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6A137A42199ED57400EE45D5 /* Images-2.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6A137A41199ED57400EE45D5 /* Images-2.xcassets */; };
+		6A137A45199F200B00EE45D5 /* Tutorial.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A137A44199F200B00EE45D5 /* Tutorial.m */; };
 		6A321908197EA8C900648C5C /* CCPhysicsTouchNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A321907197EA8C900648C5C /* CCPhysicsTouchNode.m */; };
 		6A7CCEB3198035D800C2511C /* Cat.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A7CCEB2198035D800C2511C /* Cat.m */; };
 		6A7CCEB71980369400C2511C /* Ball.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A7CCEB61980369400C2511C /* Ball.m */; };
@@ -134,6 +135,8 @@
 
 /* Begin PBXFileReference section */
 		6A137A41199ED57400EE45D5 /* Images-2.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = "Images-2.xcassets"; path = "selinawang/Images-2.xcassets"; sourceTree = SOURCE_ROOT; };
+		6A137A43199F200B00EE45D5 /* Tutorial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Tutorial.h; path = Source/Tutorial.h; sourceTree = "<group>"; };
+		6A137A44199F200B00EE45D5 /* Tutorial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Tutorial.m; path = Source/Tutorial.m; sourceTree = "<group>"; };
 		6A321906197EA8C900648C5C /* CCPhysicsTouchNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCPhysicsTouchNode.h; sourceTree = "<group>"; };
 		6A321907197EA8C900648C5C /* CCPhysicsTouchNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCPhysicsTouchNode.m; sourceTree = "<group>"; };
 		6A7CCEB1198035D800C2511C /* Cat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Cat.h; path = Source/Cat.h; sourceTree = "<group>"; };
@@ -437,6 +440,8 @@
 				6A7CCEB2198035D800C2511C /* Cat.m */,
 				6A7CCEB51980369400C2511C /* Ball.h */,
 				6A7CCEB61980369400C2511C /* Ball.m */,
+				6A137A43199F200B00EE45D5 /* Tutorial.h */,
+				6A137A44199F200B00EE45D5 /* Tutorial.m */,
 				6A321906197EA8C900648C5C /* CCPhysicsTouchNode.h */,
 				6A321907197EA8C900648C5C /* CCPhysicsTouchNode.m */,
 			);
@@ -732,6 +737,7 @@
 				6AA33A5F19746A7500358E54 /* Cup.m in Sources */,
 				6A9104C3198A916B0051E41B /* Settings.m in Sources */,
 				6A7CCEB3198035D800C2511C /* Cat.m in Sources */,
+				6A137A45199F200B00EE45D5 /* Tutorial.m in Sources */,
 				6AB0AC5E197030CE009816A7 /* Gameplay.m in Sources */,
 				6A7CCEB71980369400C2511C /* Ball.m in Sources */,
 				B7378994180767190076A88C /* MainScene.m in Sources */,
