@@ -43,7 +43,6 @@
     //if last score greater than best score, best score equals last score
     int highScoreInt = [[NSUserDefaults standardUserDefaults] integerForKey:@"High Score Int"];
     if (lastScoreInt > highScoreInt) {
-        newHighScore.visible = YES; 
         highScoreInt = lastScoreInt;
         [[NSUserDefaults standardUserDefaults] setInteger:highScoreInt forKey:@"High Score Int"];
         
@@ -53,6 +52,7 @@
         
         [[NSUserDefaults standardUserDefaults] setObject:highScoreString forKey:@"High Score String"];
         
+        newHighScore.visible = YES;
         
     }
     else {

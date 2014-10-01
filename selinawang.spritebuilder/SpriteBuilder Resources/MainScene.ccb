@@ -2146,11 +2146,11 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>160.00003051757812</real>
-							<real>56.999931335449219</real>
+							<real>0.50000011920928955</real>
+							<real>0.11999999731779099</real>
 							<integer>0</integer>
-							<integer>0</integer>
-							<integer>0</integer>
+							<integer>2</integer>
+							<integer>2</integer>
 						</array>
 					</dict>
 					<dict>
@@ -2320,6 +2320,8 @@
 						</array>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 			</dict>
 		</array>
 		<key>customClass</key>

@@ -49,6 +49,13 @@
     [_physicsNode addChild:cupinstance];
     
     cupinstance.physicsBody.velocity = ccp(0, -80);
+    
+    [self performSelector:@selector(removeCup:) withObject:cupinstance afterDelay:10.f];
+    
+}
+
+-(void)removeCup:(Cup*)cup {
+    [cup removeFromParent];
 }
 
 

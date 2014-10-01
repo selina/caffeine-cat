@@ -46,6 +46,7 @@
     self.coffeeCupsOnScreen = [NSMutableArray arrayWithObjects: nil];
     _cat.gameplayLayer = self;
     timeSinceStart = 0;
+    randomfloat = 0;
     _cloud.physicsBody.collisionType=@"cloud";
     
     NSURL *catNoiseUrl=[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"CatNoise" ofType:@"wav"]];
